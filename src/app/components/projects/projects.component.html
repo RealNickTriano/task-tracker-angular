@@ -1,1 +1,33 @@
-<p>projects works!</p>
+<div class="py-12">
+    <header class="flex justify-between items-center px-6">
+        <nav class="text-xl font-semibold w-2/3">
+            <ul class="flex justify-between items-center">
+                <li><button>All Projects</button></li>
+                <li><button>In Progress</button></li>
+                <li><button>Not Started</button></li>
+                <li><button>Completed</button></li>
+            </ul>
+        </nav>
+        <button class="bg-red-500 flex justify-center items-center gap-2 border-b-4 border-red-700 rounded-full shadow-md px-6 py-2 font-bold text-white">
+            <mat-icon class="text-white">add_box</mat-icon>
+            <p>New Project</p>
+        </button>
+    </header>
+    <section class="px-6 py-14">
+    <ul class="flex flex-col justify-center gap-6 w-full">
+        <li *ngFor="let project of projects">
+            <button class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-0 w-full">
+                <h1 class="text-xl">{{project.title}}</h1>
+                <p class="text-lg">{{project.description}}</p>
+                <div class="text-md flex justify-between items-center w-full">
+                    <div class="flex justify-center items-start gap-2">
+                        <mat-icon class="text-sm">calendar_today</mat-icon>
+                        <p>{{project.deadline}}</p>
+                    </div>
+                    <p class="font-bold" [ngStyle]="{ 'color': project.status === 'In Progress' ? '#fcd34d' : (project.status === 'Completed' ? '#22c55e' : '#ef4444') }">{{project.status}}</p>
+                </div>
+            </button>
+        </li>
+    </ul>
+    </section>
+</div>

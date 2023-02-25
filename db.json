@@ -114,6 +114,13 @@
             "description": "Manage the social media accounts for a client",
             "deadline": "2023-04-30",
             "status": "Not Started"
+        },
+        {
+            "id": 3,
+            "title": "Todo-List",
+            "description": "Make a todo list to learn CRUD",
+            "deadline": "2023-04-20",
+            "status": "Completed"
         }
     ]
 }
