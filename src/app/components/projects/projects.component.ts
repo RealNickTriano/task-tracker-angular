@@ -4,7 +4,8 @@ import { ProjectService } from 'src/app/common/services/project.service';
 
 interface Filter {
   name: string,
-  key: string
+  key: string,
+  active: boolean
 }
 
 @Component({
@@ -18,10 +19,10 @@ export class ProjectsComponent implements OnInit {
   selectedProjects: Project[] = [];
 
   filters: Filter[] = [
-    {name: "All Projects", key: ""},
-    {name: "In Progress", key: "In Progress"},
-    {name: "Not Started", key: "Not Started"},
-    {name: "Completed", key: "Completed"},
+    {name: "All Projects", key: "", active: true},
+    {name: "In Progress", key: "In Progress", active: false},
+    {name: "Not Started", key: "Not Started", active: false},
+    {name: "Completed", key: "Completed", active: false}
   ]
 
   constructor(private projectService: ProjectService) {}
@@ -36,6 +37,14 @@ export class ProjectsComponent implements OnInit {
         this.projects = projects;
         this.selectedProjects = projects;
       });
+  }
+
+  onFilterButtonClick(filter: Filter) {
+    for (let item of this.filters) {
+      if (item.name === filter.name) item.active = true;
+      else item.active = false;
+    }
+    this.filterProjectsByStatus(filter.key);
   }
 
   filterProjectsByStatus(key: string) {

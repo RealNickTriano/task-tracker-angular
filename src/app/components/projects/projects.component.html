@@ -4,8 +4,12 @@
             <ul class="flex justify-between items-center">
                 <li 
                     *ngFor="let filter of filters"
-                    (click)="filterProjectsByStatus(filter.key)"
-                ><button>{{filter.name}}</button></li>
+                    (click)="onFilterButtonClick(filter)"
+                    [ngStyle]="{'color': filter.active ? '#ef4444' : '#d6d3d1'}"
+                    class="flex flex-col justify-center items-center"
+                ><button>{{filter.name}}</button>
+                    <div *ngIf="filter.active" class="h-1 w-full bg-red-500 rounded-full animation-grow"></div>
+                </li>
             </ul>
         </nav>
         <button class="bg-red-500 flex justify-center items-center gap-2 border-b-4 border-red-700 rounded-full shadow-md px-6 py-2 font-bold text-white">
@@ -26,7 +30,9 @@
                     </div>
                     <p 
                         class="font-bold" 
-                        [ngStyle]="{ 'color': project.status === 'In Progress' ? '#fcd34d' : (project.status === 'Completed' ? '#22c55e' : '#ef4444') }"
+                        [ngStyle]="{ 'color': project.status === 'In Progress' 
+                            ? '#fcd34d' : (project.status === 'Completed' 
+                            ? '#22c55e' : '#ef4444') }"
                     >{{project.status}}</p>
                 </div>
             </button>
