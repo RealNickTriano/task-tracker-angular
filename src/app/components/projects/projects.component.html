@@ -20,7 +20,9 @@
     <section class="px-6 py-14">
     <ul class="flex flex-col justify-center gap-6 w-full">
         <li *ngFor="let project of selectedProjects">
-            <button class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
+            <button 
+                (click)="selectProject(project)"
+                class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
                 <h1 class="text-xl">{{project.title}}</h1>
                 <p class="text-lg">{{project.description}}</p>
                 <div class="text-md flex justify-between items-center w-full mt-6">
@@ -39,4 +41,7 @@
         </li>
     </ul>
     </section>
+    <app-project-details
+        [project]="selectedProject"
+    ></app-project-details>
 </div>

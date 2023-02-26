@@ -1,0 +1,65 @@
+<form 
+    #form="ngForm"
+    class="flex flex-col justify-center items-start px-6 text-2xl gap-6"
+>
+    <div class="flex flex-col justify-center items-start w-1/2">
+        <label for="title" class="font-semibold">Project Title</label>
+        <input 
+            type="text" name="title" id="title"
+            required placeholder="Project Title"
+            [(ngModel)]="currentProject.title"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+        >
+    </div>
+    <div class="flex flex-col justify-center items-start w-1/2">
+        <label for="description" class="font-semibold">Project Description</label>
+        <input 
+            type="text" name="description" id="description"
+            required placeholder="Project Description"
+            [(ngModel)]="currentProject.description"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+        >
+    </div>
+    <div class="flex flex-col justify-center items-start w-1/2">
+        <label for="deadline" class="font-semibold">Deadline</label>
+        <input 
+            type="date" name="deadline" id="deadline"
+            required placeholder="Deadline"
+            [(ngModel)]="currentProject.deadline"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+        >
+    </div>
+    <div class="flex flex-col justify-center items-start w-1/2">
+        <label for="status" class="font-semibold">Completion Status</label>
+        <!-- <input 
+            list="statuses" name="status" id="status"
+            required placeholder="Completion Status"
+            [(ngModel)]="currentProject.status"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-96"
+        > -->
+        <select name="status" id="status" 
+            [(ngModel)]="currentProject.status" 
+            [ngStyle]="{ 'color': currentProject.status === 'In Progress' 
+                            ? '#fcd34d' : (currentProject.status === 'Completed' 
+                            ? '#22c55e' : (currentProject.status === 'Not Started' ? '#ef4444' : '#d4d4d4')) }"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+        >
+            <option class="text-red-500" value="Not Started">Not Started</option>
+            <option class="text-amber-300" value="In Progress">In Progress</option>
+            <option class="text-green-500" value="Completed">Completed</option>
+        </select>
+    </div>
+
+    <div class="flex justify-center items-center gap-12 w-full pt-14">
+        <button 
+            class="bg-lime-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+        >
+        <mat-icon>save</mat-icon>
+        Save Project</button>
+        <button 
+            class="bg-red-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+        >
+        <mat-icon>delete_outline</mat-icon>
+        Delete Project</button>
+    </div>
+</form>

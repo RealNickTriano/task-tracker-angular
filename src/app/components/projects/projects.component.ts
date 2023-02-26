@@ -8,6 +8,14 @@ interface Filter {
   active: boolean
 }
 
+const emptyProject: Project = {
+  id: 0,
+  title: "",
+  description: "",
+  deadline: new Date(),
+  status: ""
+}
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -17,6 +25,7 @@ export class ProjectsComponent implements OnInit {
 
   projects: Project[] = [];
   selectedProjects: Project[] = [];
+  selectedProject: Project = emptyProject;
 
   filters: Filter[] = [
     {name: "All Projects", key: "", active: true},
@@ -54,6 +63,10 @@ export class ProjectsComponent implements OnInit {
       this.selectedProjects = this.projects.filter(
         item => item.status === key);
     }
+  }
+
+  selectProject(project: Project) {
+    this.selectedProject = project;
   }
 
 }
