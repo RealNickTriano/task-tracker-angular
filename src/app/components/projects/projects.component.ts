@@ -28,6 +28,7 @@ export class ProjectsComponent implements OnInit {
   selectedProject: Project = emptyProject;
   projectInEdit: Project = emptyProject;
   editing: boolean = false;
+  newing: boolean = false;
 
   filters: Filter[] = [
     {name: "All Projects", key: "", active: true},
@@ -45,6 +46,7 @@ export class ProjectsComponent implements OnInit {
   goBack(backTo: string) {
     if (backTo === "projects") {
       this.editing = false;
+      this.newing = false;
     }
   }
 
@@ -82,14 +84,21 @@ export class ProjectsComponent implements OnInit {
     this.editing = true;
   }
 
+  newProject() {
+    this.projectInEdit = emptyProject;
+    this.newing = true;
+  }
+
   saveProject(project: Project) {
     this.projectService.createNewProject(project)
       .subscribe(result => this.fetchProjects());
+    this.newing = false;
   }
 
   deleteProject(project: Project) {
     this.projectService.deleteProject(project)
       .subscribe(result => this.fetchProjects());
+    this.editing = false;
   }
 
   updateProject(project: Project) {

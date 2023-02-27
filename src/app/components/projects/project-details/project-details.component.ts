@@ -23,6 +23,7 @@ export class ProjectDetailsComponent implements OnInit{
     this.currentProject = {...value};
   }
   @Input() editing: boolean = false;
+  @Input() newing: boolean = false;
   @Output() goBack = new EventEmitter();
   @Output() save = new EventEmitter();
   @Output() delete = new EventEmitter();

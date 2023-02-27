@@ -141,7 +141,28 @@
       "title": "Email Marketing",
       "description": "Create and send email campaigns to potential customers",
       "deadline": "2023-04-15",
-      "status": "Pending"
+      "status": "Completed"
+    },
+    {
+      "id": 7,
+      "title": "Social Media Marketing",
+      "description": "Manage social media accounts for a company",
+      "deadline": "2023-05-31",
+      "status": "In Progress"
+    },
+    {
+      "id": 8,
+      "title": "Email Marketing 2",
+      "description": "Create and send email campaigns to potential customers MORE CUSTOMERS!",
+      "deadline": "2023-04-15",
+      "status": "Not Started"
+    },
+    {
+      "id": 9,
+      "title": "New Project Button",
+      "description": "This new project button should work now let's see!",
+      "deadline": "2023-02-28",
+      "status": "In Progress"
     }
   ]
 }
