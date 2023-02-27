@@ -17,31 +17,44 @@
             <p>New Project</p>
         </button>
     </header>
-    <section class="px-6 py-14">
-    <ul class="flex flex-col justify-center gap-6 w-full">
-        <li *ngFor="let project of selectedProjects">
-            <button 
-                (click)="selectProject(project)"
-                class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
-                <h1 class="text-xl">{{project.title}}</h1>
-                <p class="text-lg">{{project.description}}</p>
-                <div class="text-md flex justify-between items-center w-full mt-6">
-                    <div class="flex justify-center items-start gap-2">
-                        <mat-icon class="text-sm">calendar_today</mat-icon>
-                        <p>{{project.deadline}}</p>
+    <section class="px-6 py-14 max-h-1/2 overflow-y-scroll">
+        <!-- Project Form -->
+        <app-project-details
+            (goBack)="goBack($event)"
+            *ngIf="editing"
+            [project]="projectInEdit"
+            [editing]="editing"
+            (save)="saveProject($event)"
+            (delete)="deleteProject($event)"
+            (update)="updateProject($event)"
+        ></app-project-details>
+        <!-- Project List -->
+        <ul class="flex flex-col justify-center gap-6 w-full"
+            *ngIf="!editing"
+        >
+            <li *ngFor="let project of selectedProjects">
+                <button 
+                    (click)="selectProject(project)"
+                    class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
+                    <div class="flex justify-between items-center w-full">
+                        <h1 class="text-xl">{{project.title}}</h1>
+                        <button (click)="editProject(project)"><mat-icon class="text-amber-600">edit</mat-icon></button>
                     </div>
-                    <p 
-                        class="font-bold" 
-                        [ngStyle]="{ 'color': project.status === 'In Progress' 
-                            ? '#fcd34d' : (project.status === 'Completed' 
-                            ? '#22c55e' : '#ef4444') }"
-                    >{{project.status}}</p>
-                </div>
-            </button>
-        </li>
-    </ul>
+                    <p class="text-lg">{{project.description}}</p>
+                    <div class="text-md flex justify-between items-center w-full mt-6">
+                        <div class="flex justify-center items-start gap-2">
+                            <mat-icon class="text-sm">calendar_today</mat-icon>
+                            <p>{{project.deadline}}</p>
+                        </div>
+                        <p 
+                            class="font-bold" 
+                            [ngStyle]="{ 'color': project.status === 'In Progress' 
+                                ? '#fcd34d' : (project.status === 'Completed' 
+                                ? '#22c55e' : '#ef4444') }"
+                        >{{project.status}}</p>
+                    </div>
+                </button>
+            </li>
+        </ul>
     </section>
-    <app-project-details
-        [project]="selectedProject"
-    ></app-project-details>
 </div>

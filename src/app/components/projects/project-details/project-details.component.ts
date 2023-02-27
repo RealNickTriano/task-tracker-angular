@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Project } from 'src/app/common/models/Project';
 
 const emptyProject: Project = {
@@ -22,6 +22,11 @@ export class ProjectDetailsComponent implements OnInit{
     if(!value) return;
     this.currentProject = {...value};
   }
+  @Input() editing: boolean = false;
+  @Output() goBack = new EventEmitter();
+  @Output() save = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() update = new EventEmitter();
 
   constructor() {}
 

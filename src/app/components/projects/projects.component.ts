@@ -26,6 +26,8 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   selectedProjects: Project[] = [];
   selectedProject: Project = emptyProject;
+  projectInEdit: Project = emptyProject;
+  editing: boolean = false;
 
   filters: Filter[] = [
     {name: "All Projects", key: "", active: true},
@@ -38,6 +40,12 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchProjects();
+  }
+
+  goBack(backTo: string) {
+    if (backTo === "projects") {
+      this.editing = false;
+    }
   }
 
   fetchProjects() {
@@ -67,6 +75,27 @@ export class ProjectsComponent implements OnInit {
 
   selectProject(project: Project) {
     this.selectedProject = project;
+  }
+
+  editProject(project: Project) {
+    this.projectInEdit = project;
+    this.editing = true;
+  }
+
+  saveProject(project: Project) {
+    this.projectService.createNewProject(project)
+      .subscribe(result => this.fetchProjects());
+  }
+
+  deleteProject(project: Project) {
+    this.projectService.deleteProject(project)
+      .subscribe(result => this.fetchProjects());
+  }
+
+  updateProject(project: Project) {
+    this.projectService.updateProject(project)
+      .subscribe(result => this.fetchProjects());
+    this.editing = false;
   }
 
 }

@@ -18,7 +18,23 @@ export class ProjectService {
     return `${BASE_URL}/${this.endpoint}`
   }
 
+  private getUrlWithID(id: Number) {
+    return `${this.getUrl()}/${id}`;
+  }
+
   getAllProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.getUrl());
+  }
+
+  createNewProject(project: Project): Observable<Project> {
+    return this.http.post<Project>(this.getUrl(), project);
+  }
+
+  deleteProject(project: Project): Observable<Project> {
+    return this.http.delete<Project>(this.getUrlWithID(project.id));
+  }
+
+  updateProject(project: Project): Observable<Project> {
+    return this.http.put<Project>(this.getUrlWithID(project.id), project);
   }
 }
