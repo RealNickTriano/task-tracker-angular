@@ -12,6 +12,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { AccountComponent } from './components/account/account.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ProjectDetailsComponent } from './components/projects/project-details/project-details.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectDetailsComponent } from './components/projects/project-details/p
     ProjectsComponent,
     AccountComponent,
     DiscussionComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,

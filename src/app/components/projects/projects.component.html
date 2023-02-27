@@ -21,6 +21,8 @@
         </button>
     </header>
     <section class="px-6 py-14 h-full">
+        <!-- Task List -->
+        <app-tasks *ngIf="viewTasks"></app-tasks>
         <!-- Project Form -->
         <app-project-details
             (goBack)="goBack($event)"
@@ -33,12 +35,13 @@
             (update)="updateProject($event)"
         ></app-project-details>
         <!-- Project List -->
-        <div class="h-3/4 overflow-y-auto scrollbar pr-4" *ngIf="!editing && !newing">
+        <div class="h-3/4 overflow-y-auto scrollbar pr-4" *ngIf="!editing && !newing && !viewTasks">
             <ul class="flex flex-col justify-center gap-6 w-full"
             >
                 <li *ngFor="let project of selectedProjects">
                     <button 
                         (click)="selectProject(project)"
+                        [routerLink]="['/projects', project.id]"
                         class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
                         <div class="flex justify-between items-center w-full">
                             <h1 class="text-xl">{{project.title}}</h1>

@@ -29,6 +29,7 @@ export class ProjectsComponent implements OnInit {
   projectInEdit: Project = emptyProject;
   editing: boolean = false;
   newing: boolean = false;
+  viewTasks: boolean = false;
 
   filters: Filter[] = [
     {name: "All Projects", key: "", active: true},
@@ -77,6 +78,7 @@ export class ProjectsComponent implements OnInit {
 
   selectProject(project: Project) {
     this.selectedProject = project;
+    this.viewTasks = true;
   }
 
   editProject(project: Project) {
