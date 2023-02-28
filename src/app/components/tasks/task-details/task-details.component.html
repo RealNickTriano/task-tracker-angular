@@ -1,0 +1,78 @@
+<button (click)="goBack.emit('tasks')"><mat-icon>arrow_back</mat-icon></button>
+<form 
+    #form="ngForm"
+    class="flex flex-col justify-center items-start px-6 text-2xl gap-6"
+>
+<div class="flex justify-center items-start gap-6 w-full">
+    <div class="flex flex-col justify-center items-start w-1/2">
+        <div class="flex flex-col justify-center items-start w-full">
+            <label for="title" class="font-semibold">Task Title</label>
+            <input 
+                type="text" name="title" id="title"
+                required placeholder="Task Title"
+                [(ngModel)]="selectedTask.title"
+                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+            >
+        </div>
+        <div class="flex flex-col justify-center items-start w-full">
+            <label for="deadline" class="font-semibold">Deadline</label>
+            <input 
+                type="date" name="deadline" id="deadline"
+                required placeholder="Deadline"
+                [(ngModel)]="selectedTask.deadline"
+                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+            >
+        </div>
+        <div class="flex flex-col justify-center items-start w-full">
+            <label for="status" class="font-semibold">Completion Status</label>
+            <select name="status" id="status" 
+                [(ngModel)]="selectedTask.status" 
+                [ngStyle]="{ 'color': selectedTask.status === 'In Progress' 
+                                ? '#fcd34d' : (selectedTask.status === 'Completed' 
+                                ? '#22c55e' : (selectedTask.status === 'Not Started' ? '#ef4444' : '#d4d4d4')) }"
+                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full bg-caret-down bg-no-repeat bg-right styled-select bg-origin-content hover:cursor-pointer"
+            >
+                <option class="text-red-500" value="Not Started">Not Started</option>
+                <option class="text-amber-300" value="In Progress">In Progress</option>
+                <option class="text-green-500" value="Completed">Completed</option>
+            </select>
+        </div>
+
+        <app-dropdown></app-dropdown>
+
+    </div>
+    <div class="flex flex-col justify-center items-start w-1/2 h-full">
+        <label for="description" class="font-semibold">Task Description</label>
+        <textarea 
+            type="text" name="description" id="description"
+            required placeholder="Task Description"
+            [(ngModel)]="selectedTask.description"
+            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full resize-none h-48 scrollbar"
+        ></textarea>
+    </div>
+</div>
+
+    <div class="flex justify-center items-center gap-12 w-full pt-14">
+        <button 
+            *ngIf="editing"
+            class="bg-amber-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+            (click)="update.emit(selectedTask)"
+        >
+        <mat-icon>edit</mat-icon>
+        Update Task</button>
+        <button 
+            *ngIf="!editing"
+            class="bg-lime-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+            (click)="save.emit(selectedTask)"
+        >
+        <mat-icon>save</mat-icon>
+        Save Task</button>
+        <button 
+            *ngIf="!newing"
+            class="bg-red-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+            (click)="delete.emit(selectedTask)"
+        >
+        <mat-icon>delete_outline</mat-icon>
+        Delete Task</button>
+    </div>
+</form>

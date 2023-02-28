@@ -29,4 +29,16 @@ export class TaskService {
   fetchTasksByProjectId(id: Number): Observable<Task[]> {
     return this.http.get<Task[]>(this.getUrlWithProjectId(id));
   }
+
+  createNewTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.getUrl(), task);
+  }
+
+  deleteTask(task: Task): Observable<Task> {
+    return this.http.delete<Task>(this.getUrlWithTaskId(task.id));
+  }
+
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(this.getUrlWithTaskId(task.id), task);
+  }
 }

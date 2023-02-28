@@ -4,12 +4,12 @@
       "id": 2,
       "projectId": 1,
       "title": "Update User Profile",
-      "description": "Add new fields to the user profile page",
+      "description": "Add new fields to the user profile page and do this",
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
       "priority": 2,
-      "status": "In Progress"
+      "status": "Completed"
     },
     {
       "id": 3,
@@ -56,28 +56,6 @@
       "status": "Not Started"
     },
     {
-      "id": 7,
-      "projectId": 1,
-      "title": "Fix Broken Links",
-      "description": "Remove or update broken links on the website",
-      "deadline": "2023-03-03",
-      "category": "Bug",
-      "color": "red",
-      "priority": 1,
-      "status": "In Progress"
-    },
-    {
-      "id": 8,
-      "projectId": 1,
-      "title": "Add User Reviews",
-      "description": "Allow users to leave reviews for products",
-      "deadline": "2023-03-08",
-      "category": "Feature",
-      "color": "green",
-      "priority": 3,
-      "status": "In Progress"
-    },
-    {
       "id": 9,
       "projectId": 2,
       "title": "Create Mobile App",
@@ -98,6 +76,28 @@
       "color": "yellow",
       "priority": 4,
       "status": "In Progress"
+    },
+    {
+      "id": 11,
+      "projectId": 1,
+      "title": "My New Task",
+      "description": "Do this task and get rewarded with some cool points!",
+      "deadline": "2023-02-28",
+      "category": "",
+      "color": "",
+      "priority": 0,
+      "status": "Not Started"
+    },
+    {
+      "id": 12,
+      "projectId": "1",
+      "title": "Anotha one",
+      "description": "Gonna do this task! Its Important!",
+      "deadline": "2023-03-01",
+      "category": "",
+      "color": "",
+      "priority": 0,
+      "status": "Not Started"
     }
   ],
   "projects": [

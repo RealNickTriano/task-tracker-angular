@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'caret-down': "url('../src/app/common/svg/caret-down.svg')"
+      }
+    },
   },
   plugins: [],
 }

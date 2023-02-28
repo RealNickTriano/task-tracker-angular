@@ -1,0 +1,30 @@
+<div
+    [ngStyle]="{width: width}"
+    class="flex flex-col justify-center items-start
+            text-lg relative"
+>
+    <label for=title>{{title}}:</label>
+    <button 
+        id="title"
+        (click)="setShowChoices()"
+        class="bg-stone-800 w-full h-12 shadow-md rounded-md flex justify-between items-center gap-6 px-4">
+        <p *ngIf="selected">{{selected}}</p>
+        <mat-icon class="scale-[1.5]">arrow_drop_down</mat-icon>
+    </button>
+    <div
+        *ngIf="showChoices" 
+        class="w-full bg-stone-800 rounded-md shadow-md absolute top-20"
+    >
+        <ul>
+            <li 
+                *ngFor="let item of list">
+                <button 
+                    (click)="setSelected(item)"
+                    class="hover:bg-stone-600 w-full rounded-md text-left px-4 py-2"
+                >
+                    {{item}}
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

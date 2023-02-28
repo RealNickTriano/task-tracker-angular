@@ -1,11 +1,11 @@
 export interface Task {
-    id: Number,
-    projectId: Number,
+    id: number,
+    projectId: number,
     title: String,
     description: String,
     deadline: Date,
     category: String,
     color: String,
-    priority: Number,
+    priority: number,
     status: String
 }
