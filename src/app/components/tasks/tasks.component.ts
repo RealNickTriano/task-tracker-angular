@@ -30,6 +30,7 @@ export class TasksComponent implements OnInit {
   editing: boolean = false;
   newing: boolean = false;
   selectedTask: Task = emptyTask;
+  filters: string[] = ["Show All", "Show All", "Show All"];
 
   constructor(private route: ActivatedRoute, 
               private taskService: TaskService) {}
@@ -40,12 +41,58 @@ export class TasksComponent implements OnInit {
   }
 
   onSelectStatus(value: string) {
-    if (value != 'Show All') {
+    this.filters[0] = value;
+    if (value !== "Show All") {
       this.shownTasks = this.tasks.filter(item => item.status === value);
     } else {
       this.shownTasks = this.tasks;
     }
-    
+    if (this.filters[1] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.priority.toString() === this.filters[1]);
+    }
+    if (this.filters[2] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.category === this.filters[2]);
+    } 
+  }
+
+  filterTasks() {
+    for (let i = 0; i < this.filters.length; i++) {
+      if (this.filters[i] !== "Show All") {
+        this.shownTasks = this.shownTasks
+          .filter(item => item.status === this.filters[i]);
+      }
+    }
+  }
+
+  onSelectPriority(value: string) {
+    this.filters[1] = value;
+    if (value !== "Show All") {
+      this.shownTasks = this.tasks.filter(item => item.priority.toString() === this.filters[1]);
+      
+    } else {
+      this.shownTasks = this.tasks;
+    }
+    if (this.filters[0] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.status === this.filters[0]);
+    }
+    if (this.filters[2] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.category === this.filters[2]);
+    }
+  }
+
+  onSelectCategory(value: string) {
+    this.filters[2] = value;
+    if (value !== "Show All") {
+      this.shownTasks = this.tasks.filter(item => item.category === this.filters[2]);
+    } else {
+      this.shownTasks = this.tasks;
+    }
+    if (this.filters[0] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.status === this.filters[0]);
+    }
+    if (this.filters[1] !== "Show All") {
+      this.shownTasks = this.shownTasks.filter(item => item.priority.toString() === this.filters[1]);
+    }
   }
 
   getProjectIdFromUrl() {

@@ -22,10 +22,19 @@
                 [title]="'Task Status'"
                 [list]="['Show All', 'Not Started', 'In Progress', 'Completed']"
             ></app-dropdown>
-            <app-dropdown></app-dropdown>
-            <app-dropdown></app-dropdown>
+            <app-dropdown
+                (onSelect)="onSelectPriority($event)"
+                [title]="'Task Priority'"
+                [list]="['Show All', '1', '2', '3', '4']"
+            ></app-dropdown>
+            <app-dropdown
+                (onSelect)="onSelectCategory($event)"
+                [title]="'Task Category'"
+                [list]="['Show All', 'Feature', 'Bug', 'Refactor', 'Design']"
+            ></app-dropdown>
             <app-new-button
                 (newTask)="newTask()"
+                [name]="'New Task'"
             ></app-new-button>
         </header>
         <ul 
