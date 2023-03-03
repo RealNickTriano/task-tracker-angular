@@ -6,6 +6,18 @@ export interface Task {
     deadline: Date,
     category: String,
     color: String,
-    priority: number,
+    priority: string,
     status: String
+}
+
+export const emptyTask = {
+    id: 0,
+    projectId: 0,
+    title: '',
+    description: '',
+    deadline: new Date(),
+    category: '',
+    color: '',
+    priority: '',
+    status: ''
 }

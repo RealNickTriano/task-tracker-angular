@@ -1,20 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Task } from 'src/app/common/models/Task';
+import { Task, emptyTask } from 'src/app/common/models/Task';
 import { ProjectService } from 'src/app/common/services/project.service';
 import { TaskService } from 'src/app/common/services/task.service';
-
-const emptyTask: Task = {
-  "id": 0,
-  "projectId": 0,
-  "title": "",
-  "description": "",
-  "deadline": new Date(),
-  "category": "",
-  "color": "",
-  "priority": 0,
-  "status": ""
-}
 
 @Component({
   selector: 'app-tasks',
@@ -27,10 +15,11 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   shownTasks: Task[] = this.tasks;
   taskInEdit: Task = emptyTask;
-  editing: boolean = false;
+  editing: boolean = true;
   newing: boolean = false;
   selectedTask: Task = emptyTask;
   filters: string[] = ["Show All", "Show All", "Show All"];
+  viewTask: boolean = false;
 
   constructor(private route: ActivatedRoute, 
               private taskService: TaskService) {}
@@ -114,6 +103,8 @@ export class TasksComponent implements OnInit {
     if (backTo === "tasks") {
       this.editing = false;
       this.newing = false;
+      this.selectedTask = emptyTask;
+      this.taskInEdit = emptyTask;
     }
   }
 

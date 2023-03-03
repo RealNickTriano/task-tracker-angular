@@ -12,6 +12,61 @@
       "status": "Completed"
     },
     {
+      "id": 15,
+      "projectId": 1,
+      "title": "Update User Profile",
+      "description": "Add new fields to the user profile page and do this",
+      "deadline": "2023-03-10",
+      "category": "Feature",
+      "color": "blue",
+      "priority": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 16,
+      "projectId": 1,
+      "title": "Update User Profile",
+      "description": "Add new fields to the user profile page and do this",
+      "deadline": "2023-03-10",
+      "category": "Feature",
+      "color": "blue",
+      "priority": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 17,
+      "projectId": 1,
+      "title": "Update User Profile",
+      "description": "Add new fields to the user profile page and do this",
+      "deadline": "2023-03-10",
+      "category": "Feature",
+      "color": "blue",
+      "priority": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 18,
+      "projectId": 1,
+      "title": "Update User Profile",
+      "description": "Add new fields to the user profile page and do this",
+      "deadline": "2023-03-10",
+      "category": "Feature",
+      "color": "blue",
+      "priority": 1,
+      "status": "Completed"
+    },
+    {
+      "id": 19,
+      "projectId": 1,
+      "title": "Update User Profile",
+      "description": "Add new fields to the user profile page and do this",
+      "deadline": "2023-03-10",
+      "category": "Feature",
+      "color": "blue",
+      "priority": 1,
+      "status": "Completed"
+    },
+    {
       "id": 3,
       "projectId": 1,
       "title": "Fix Login Bug",

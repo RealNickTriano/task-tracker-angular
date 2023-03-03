@@ -1,0 +1,9 @@
+<div class="flex flex-col justify-center items-start gap-2 w-full h-full">
+    <label [for]="name" class="text-xl font-medium">{{label}}</label>
+    <textarea 
+        type="text" [name]="name" [id]="name"
+        [required]="required" [placeholder]="placeholder"
+        [(ngModel)]="model"
+        class="bg-stone-700 rounded-sm px-4 py-1 outline-none w-full h-full resize-none scrollbar text-lg shadow-md"
+    ></textarea>
+</div>

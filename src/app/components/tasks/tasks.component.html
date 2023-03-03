@@ -1,7 +1,10 @@
-<section class="px-6 py-8">
-    
+<section class="px-6 py-8 h-full">
+    <!-- Task View -->
+    <app-task-form>
+        
+    </app-task-form>
     <!-- Task Form -->
-    <app-task-details
+    <!-- <app-task-details
         [selectedTask]="taskInEdit"
         [editing]="editing"
         [newing]="newing"
@@ -10,59 +13,66 @@
         (update)="updateTask($event)"
         (goBack)="goBack($event)"
         *ngIf="editing || newing"
-    ></app-task-details>
+    ></app-task-details> -->
     <!-- Task List -->
     <section 
         *ngIf="!editing && !newing"
-        class="flex flex-col justify-center items-start gap-6"
+        class="flex flex-col justify-start items-center gap-6 h-full"
     >
         <header class="flex justify-start items-end gap-6">
             <app-dropdown 
                 (onSelect)="onSelectStatus($event)"
                 [title]="'Task Status'"
                 [list]="['Show All', 'Not Started', 'In Progress', 'Completed']"
+                [selected]="'Show All'"
             ></app-dropdown>
             <app-dropdown
                 (onSelect)="onSelectPriority($event)"
                 [title]="'Task Priority'"
                 [list]="['Show All', '1', '2', '3', '4']"
+                [selected]="'Show All'"
             ></app-dropdown>
             <app-dropdown
                 (onSelect)="onSelectCategory($event)"
                 [title]="'Task Category'"
                 [list]="['Show All', 'Feature', 'Bug', 'Refactor', 'Design']"
+                [selected]="'Show All'"
             ></app-dropdown>
             <app-new-button
                 (newTask)="newTask()"
                 [name]="'New Task'"
             ></app-new-button>
         </header>
-        <ul 
-            class="grid gap-6 grid-cols-3 pb-12" 
-            
-        >
-            <li
-                *ngFor="let task of shownTasks"
+        
+        <div class="h-3/4 overflow-y-auto scrollbar pr-4">
+            <ul 
+                class="grid gap-6 grid-cols-3 pb-12" 
+                
             >
-            <!-- Add view task? complete/delete task? click-->
-            <button class="bg-stone-800 rounded-lg shadow-md flex flex-col justify-start items-center px-4 py-2 gap-4 w-72">
-                <div 
-                    class="rounded-full h-2 w-[90%] mx-auto"
-                    [ngStyle]="{'background-color': task.color}"
-                ></div>
-                <h1 class="font-semibold text-xl truncate w-full">{{task.title}}</h1>
-                <p class="flex justify-center items-center h-24 text-ellipsis w-full">{{task.description}}</p>
-                <div class="flex justify-between items-center w-full">
-                    <p class="flex justify-center items-center gap-2">
-                        <mat-icon class="text-md">calendar_today</mat-icon>{{task.deadline}}
-                    </p>
-                    <!-- Add edit click-->
-                    <button (click)="editTask(task)">
-                        <mat-icon class="text-amber-600">edit</mat-icon>
-                    </button>
-                </div>
-            </button>
-            </li>
-        </ul>
+                <li
+                    *ngFor="let task of shownTasks"
+                >
+                <!-- Add view task? complete/delete task? click-->
+                <button 
+                    class="bg-stone-800 rounded-lg shadow-md flex flex-col justify-start items-center px-4 py-2 gap-4 w-72">
+                    <div 
+                        class="rounded-full h-2 w-[90%] mx-auto"
+                        [ngStyle]="{'background-color': task.color}"
+                    ></div>
+                    <h1 class="font-semibold text-xl truncate w-full">{{task.title}}</h1>
+                    <p class="flex justify-center items-center h-24 text-ellipsis w-full">{{task.description}}</p>
+                    <div class="flex justify-between items-center w-full">
+                        <p class="flex justify-center items-center gap-2">
+                            <mat-icon class="text-md">calendar_today</mat-icon>{{task.deadline}}
+                        </p>
+                        <!-- Add edit click-->
+                        <button (click)="editTask(task)">
+                            <mat-icon class="text-amber-600">edit</mat-icon>
+                        </button>
+                    </div>
+                </button>
+                </li>
+            </ul>
+        </div>
     </section>
 </section>

@@ -1,17 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Task } from 'src/app/common/models/Task';
-
-const emptyTask: Task = {
-  "id": 0,
-  "projectId": 0,
-  "title": "",
-  "description": "",
-  "deadline": new Date(),
-  "category": "",
-  "color": "",
-  "priority": 0,
-  "status": ""
-}
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Task, emptyTask } from 'src/app/common/models/Task';
 
 @Component({
   selector: 'app-task-details',
@@ -32,5 +21,18 @@ export class TaskDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  setStatus(status: string) {
+    this.selectedTask.status = status;
+  }
+
+  onGoBack() {
+    this.clearForm();
+    this.goBack.emit('tasks');
+  }
+
+  clearForm() {
+    this.selectedTask = emptyTask;
   }
 }

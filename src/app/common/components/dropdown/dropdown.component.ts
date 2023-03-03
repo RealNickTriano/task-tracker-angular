@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class DropdownComponent implements OnInit {
 
   showChoices: boolean = false;
-  @Input() list: string[] = ["Show All", "Feature", "Bug", "Refactor"];
-  selected: string = this.list[0];
+  @Input() list: string[] = [];
+  @Input() selected: String = '';
   @Input() title: string = 'Title';
   @Input() width: string = "180px";
 
@@ -18,7 +18,7 @@ export class DropdownComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-
+    this.selected = this.list[0];
   }
   
   setShowChoices() {

@@ -1,19 +1,17 @@
-<button (click)="goBack.emit('tasks')"><mat-icon>arrow_back</mat-icon></button>
+<button (click)="onGoBack()"><mat-icon>arrow_back</mat-icon></button>
 <form 
     #form="ngForm"
     class="flex flex-col justify-center items-start px-6 text-2xl gap-6"
 >
 <div class="flex justify-center items-start gap-6 w-full">
     <div class="flex flex-col justify-center items-start w-1/2">
-        <div class="flex flex-col justify-center items-start w-full">
-            <label for="title" class="font-semibold">Task Title</label>
-            <input 
-                type="text" name="title" id="title"
-                required placeholder="Task Title"
-                [(ngModel)]="selectedTask.title"
-                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
-            >
-        </div>
+        <app-text-input
+            class="w-full"
+            [label]="'Task Title'"
+            [model]="selectedTask.title"
+            [placeholder]="'Enter a Title...'"
+            [name]="'title'"
+        ></app-text-input>
         <div class="flex flex-col justify-center items-start w-full">
             <label for="deadline" class="font-semibold">Deadline</label>
             <input 
@@ -23,22 +21,13 @@
                 class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
             >
         </div>
-        <div class="flex flex-col justify-center items-start w-full">
-            <label for="status" class="font-semibold">Completion Status</label>
-            <select name="status" id="status" 
-                [(ngModel)]="selectedTask.status" 
-                [ngStyle]="{ 'color': selectedTask.status === 'In Progress' 
-                                ? '#fcd34d' : (selectedTask.status === 'Completed' 
-                                ? '#22c55e' : (selectedTask.status === 'Not Started' ? '#ef4444' : '#d4d4d4')) }"
-                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full bg-caret-down bg-no-repeat bg-right styled-select bg-origin-content hover:cursor-pointer"
-            >
-                <option class="text-red-500" value="Not Started">Not Started</option>
-                <option class="text-amber-300" value="In Progress">In Progress</option>
-                <option class="text-green-500" value="Completed">Completed</option>
-            </select>
-        </div>
-
-        <app-dropdown></app-dropdown>
+        <app-dropdown
+            [list]="['Not Started', 'In Progress', 'Completed']"
+            [selected]="selectedTask.status"
+            [title]="'Completion Status'"
+            [width]="'200px'"
+            (onSelect)="setStatus($event)"
+        ></app-dropdown>
 
     </div>
     <div class="flex flex-col justify-center items-start w-1/2 h-full">

@@ -1,0 +1,85 @@
+<div 
+    class="bg-stone-800 rounded-lg p-12"
+>
+    <header 
+        class="grid grid-cols-3 mb-6"
+    >
+        <h1 class="text-3xl font-medium col-start-2 self-center place-self-center">Task Details</h1>
+        <!-- TODO: onClick -->
+        <button
+            class="col-start-3 place-self-end self-center scale-150"
+        >
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+    </header>
+
+    <form 
+        #form="ngForm"
+        class="flex justify-between items-start gap-6 w-full h-96"
+    > 
+    <!-- Left Half -->
+        <div class="flex flex-col justify-start items-start gap-4 w-full">
+            <app-text-input
+                [model]="selectedTask.title"
+                [name]="'title'"
+                [label]="'Task Title'"
+                [placeholder]="'Enter a title...'"
+                class="w-full"
+            ></app-text-input>
+
+            <app-dropdown
+                [list]="['Not Started', 'In Progress', 'Completed']"
+                [selected]="selectedTask.status"
+                [title]="'Task Status'"
+                [width]="'100%'"
+                class="w-full z-20"
+            ></app-dropdown>
+
+            <app-dropdown
+                [list]="['Low', 'Medium', 'High']"
+                [selected]="selectedTask.priority"
+                [title]="'Task Priority'"
+                [width]="'100%'"
+                class="w-full z-10"
+            ></app-dropdown>
+
+            <app-dropdown
+                [list]="['Feature', 'Bug', 'Refactor']"
+                [selected]="selectedTask.category"
+                [title]="'Task Category'"
+                [width]="'100%'"
+                class="w-full z-0"
+            ></app-dropdown>
+
+        </div>
+    <!-- Right Half -->
+        <div class="flex flex-col justify-start items-start gap-6 w-full h-full">
+            <app-text-box
+                [model]="selectedTask.description"
+                [name]="'description'"
+                [label]="'Task Description'"
+                [placeholder]="'Enter a description...'"
+                [required]="false"
+                class="w-full h-full"
+            >
+            </app-text-box>
+            <div class="flex justify-center items-center gap-12 w-full">
+                <button 
+
+                    class="bg-amber-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+                >
+                <mat-icon>edit</mat-icon>
+                Update Task</button>
+
+                <button 
+
+                    class="bg-red-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+
+                >
+                <mat-icon>delete_outline</mat-icon>
+                Delete Task</button>
+            </div>
+        </div>
+    </form>
+
+</div>
