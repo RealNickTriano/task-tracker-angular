@@ -14,13 +14,13 @@
     </header>
 
     <form 
-        #form="ngForm"
+        #formRef="ngForm"
         class="flex justify-between items-start gap-6 w-full h-96"
     > 
     <!-- Left Half -->
         <div class="flex flex-col justify-start items-start gap-4 w-full">
             <app-text-input
-                [model]="selectedTask.title"
+                [(ngModel)]="selectedTask.title"
                 [name]="'title'"
                 [label]="'Task Title'"
                 [placeholder]="'Enter a title...'"
@@ -29,37 +29,40 @@
 
             <app-dropdown
                 [list]="['Not Started', 'In Progress', 'Completed']"
-                [selected]="selectedTask.status"
+                [(ngModel)]="selectedTask.status"
                 [title]="'Task Status'"
                 [width]="'100%'"
                 class="w-full z-20"
+                name="status"
             ></app-dropdown>
 
             <app-dropdown
                 [list]="['Low', 'Medium', 'High']"
-                [selected]="selectedTask.priority"
+                [(ngModel)]="selectedTask.priority"
                 [title]="'Task Priority'"
                 [width]="'100%'"
                 class="w-full z-10"
+                name="priority"
             ></app-dropdown>
 
             <app-dropdown
                 [list]="['Feature', 'Bug', 'Refactor']"
-                [selected]="selectedTask.category"
+                [(ngModel)]="selectedTask.category"
                 [title]="'Task Category'"
                 [width]="'100%'"
                 class="w-full z-0"
+                name="category"
             ></app-dropdown>
 
         </div>
     <!-- Right Half -->
         <div class="flex flex-col justify-start items-start gap-6 w-full h-full">
             <app-text-box
-                [model]="selectedTask.description"
-                [name]="'description'"
+                [(ngModel)]="selectedTask.description"
                 [label]="'Task Description'"
                 [placeholder]="'Enter a description...'"
                 [required]="false"
+                name="description"
                 class="w-full h-full"
             >
             </app-text-box>
@@ -81,5 +84,8 @@
             </div>
         </div>
     </form>
+
+    <pre>{{formRef.value | json}}</pre>
+    <pre>{{formRef.valid | json}}</pre>
 
 </div>

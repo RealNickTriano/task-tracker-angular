@@ -3,7 +3,8 @@
     <input 
         type="text" [name]="name" [id]="name"
         required [placeholder]="placeholder"
-        [(ngModel)]="model"
+        [(ngModel)]="value"
+        (ngModelChange)="onChange($event)"
         class="bg-stone-700 rounded-sm px-4 py-1 outline-none w-full shadow-md"
     >
 </div>

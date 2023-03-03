@@ -8,7 +8,10 @@
         [id]="title"
         (click)="setShowChoices()"
         class="bg-stone-700 w-full shadow-md rounded-sm flex justify-between items-center gap-6 px-4 py-1">
-        <p *ngIf="selected">{{selected}}</p>
+        <p 
+            [(ngModel)]="value"
+            (ngModelChange)="onChange($event)"
+        >{{value}}</p>
         <mat-icon class="scale-[1.5]">arrow_drop_down</mat-icon>
     </button>
     <div

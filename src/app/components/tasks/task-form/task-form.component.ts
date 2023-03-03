@@ -9,7 +9,17 @@ import { Task, emptyTask } from 'src/app/common/models/Task';
 })
 export class TaskFormComponent implements OnInit{
 
-  @Input() selectedTask: Task = emptyTask;
+  @Input() selectedTask: Task = {
+    "id": 2,
+    "projectId": 1,
+    "title": "Update User Profile",
+    "description": "Add new fields to the user profile page and do this",
+    "deadline": new Date("2023-03-10"),
+    "category": "Feature",
+    "color": "blue",
+    "priority": 'Low',
+    "status": "Completed"
+  };
   
   constructor() {}
 

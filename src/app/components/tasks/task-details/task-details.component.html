@@ -5,13 +5,13 @@
 >
 <div class="flex justify-center items-start gap-6 w-full">
     <div class="flex flex-col justify-center items-start w-1/2">
-        <app-text-input
+        <!-- <app-text-input
             class="w-full"
             [label]="'Task Title'"
             [model]="selectedTask.title"
             [placeholder]="'Enter a Title...'"
             [name]="'title'"
-        ></app-text-input>
+        ></app-text-input> -->
         <div class="flex flex-col justify-center items-start w-full">
             <label for="deadline" class="font-semibold">Deadline</label>
             <input 
@@ -21,13 +21,13 @@
                 class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
             >
         </div>
-        <app-dropdown
+        <!-- <app-dropdown
             [list]="['Not Started', 'In Progress', 'Completed']"
             [selected]="selectedTask.status"
             [title]="'Completion Status'"
             [width]="'200px'"
             (onSelect)="setStatus($event)"
-        ></app-dropdown>
+        ></app-dropdown> -->
 
     </div>
     <div class="flex flex-col justify-center items-start w-1/2 h-full">
