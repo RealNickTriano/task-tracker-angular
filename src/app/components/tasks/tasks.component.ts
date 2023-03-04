@@ -109,7 +109,7 @@ export class TasksComponent implements OnInit {
   }
 
   editTask(task: Task) {
-    this.taskInEdit = task;
+    this.taskInEdit = {...task};
     this.editing = true;
   }
 

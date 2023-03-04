@@ -13,7 +13,6 @@ import { AccountComponent } from './components/account/account.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ProjectDetailsComponent } from './components/projects/project-details/project-details.component';
 import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskDetailsComponent } from './components/tasks/task-details/task-details.component';
 import { NewButtonComponent } from './common/components/new-button/new-button.component';
 import { DropdownComponent } from './common/components/dropdown/dropdown.component';
 import { TextInputComponent } from './common/components/text-input/text-input.component';
@@ -30,7 +29,6 @@ import { TextBoxComponent } from './common/components/text-box/text-box.componen
     DiscussionComponent,
     ProjectDetailsComponent,
     TasksComponent,
-    TaskDetailsComponent,
     NewButtonComponent,
     DropdownComponent,
     TextInputComponent,

@@ -3,19 +3,15 @@
     <app-task-form
         *ngIf="editing || newing"
         [selectedTask]="taskInEdit"
-        (goBack)="goBack($event)"
-    ></app-task-form>
-    <!-- Task Form -->
-    <!-- <app-task-details
-        [selectedTask]="taskInEdit"
         [editing]="editing"
         [newing]="newing"
+        (goBack)="goBack($event)"
         (save)="saveTask($event)"
         (delete)="deleteTask($event)"
         (update)="updateTask($event)"
-        (goBack)="goBack($event)"
-        *ngIf="editing || newing"
-    ></app-task-details> -->
+    ></app-task-form>
+    <!-- End Task View -->
+
     <!-- Task List -->
     <section 
         *ngIf="!editing && !newing"
@@ -56,6 +52,7 @@
                 >
                 <!-- Add view task? complete/delete task? click-->
                 <button 
+                    (click)="editTask(task)"
                     class="bg-stone-800 rounded-lg shadow-md flex flex-col justify-start items-center px-4 py-2 gap-4 w-72">
                     <div 
                         class="rounded-full h-2 w-[90%] mx-auto"
@@ -67,10 +64,6 @@
                         <p class="flex justify-center items-center gap-2">
                             <mat-icon class="text-md">calendar_today</mat-icon>{{task.deadline}}
                         </p>
-                        <!-- Add edit click-->
-                        <button (click)="editTask(task)">
-                            <mat-icon class="text-amber-600">edit</mat-icon>
-                        </button>
                     </div>
                 </button>
                 </li>

@@ -20,6 +20,7 @@ export class TextInputComponent
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() placeholder: string = '';
+  @Input() required: boolean = false;
 
   constructor() {}
 

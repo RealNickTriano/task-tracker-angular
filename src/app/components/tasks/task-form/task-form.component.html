@@ -26,6 +26,7 @@
                 [label]="'Task Title'"
                 [placeholder]="'Enter a title...'"
                 class="w-full"
+                [required]="true"
             ></app-text-input>
 
             <app-dropdown
@@ -71,7 +72,7 @@
             class="flex flex-col justify-center items-start gap-6 w-full h-[410px]">
             <app-text-box
                 [(ngModel)]="selectedTask.description"
-                [label]="'Task Description'"
+                [label]="'Task Description (Optional)'"
                 [placeholder]="'Enter a description...'"
                 [required]="false"
                 name="description"
@@ -80,16 +81,25 @@
             </app-text-box>
             <div class="flex justify-center items-center gap-12 w-full">
                 <button 
-
-                    class="bg-amber-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+                    [disabled]="!formRef.valid"
+                    *ngIf="editing"
+                    class="bg-amber-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2 disabled:opacity-50"
+                    (click)="update.emit(selectedTask)"
                 >
                 <mat-icon>edit</mat-icon>
                 Update Task</button>
-
                 <button 
-
+                    [disabled]="!formRef.valid"
+                    *ngIf="!editing"
+                    class="bg-lime-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2 disabled:opacity-50"
+                    (click)="save.emit(selectedTask)"
+                >
+                <mat-icon>save</mat-icon>
+                Save Task</button>
+                <button 
+                    *ngIf="!newing"
                     class="bg-red-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
-
+                    (click)="delete.emit(selectedTask)"
                 >
                 <mat-icon>delete_outline</mat-icon>
                 Delete Task</button>
