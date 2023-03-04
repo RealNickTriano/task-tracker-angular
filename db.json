@@ -8,7 +8,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -19,7 +19,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -30,7 +30,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -41,7 +41,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -52,7 +52,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -63,7 +63,7 @@
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
-      "priority": 1,
+      "priority": "Low",
       "status": "Completed"
     },
     {
@@ -74,7 +74,7 @@
       "deadline": "2023-03-01",
       "category": "Bug",
       "color": "red",
-      "priority": 1,
+      "priority": "Low",
       "status": "Not Started"
     },
     {
@@ -85,7 +85,7 @@
       "deadline": "2023-03-05",
       "category": "Feature",
       "color": "green",
-      "priority": 3,
+      "priority": "High",
       "status": "In Progress"
     },
     {
@@ -96,7 +96,7 @@
       "deadline": "2023-03-15",
       "category": "Feature",
       "color": "blue",
-      "priority": 2,
+      "priority": "Medium",
       "status": "Not Started"
     },
     {
@@ -107,7 +107,7 @@
       "deadline": "2023-03-20",
       "category": "Feature",
       "color": "yellow",
-      "priority": 4,
+      "priority": "High",
       "status": "Not Started"
     },
     {
@@ -118,7 +118,7 @@
       "deadline": "2023-03-25",
       "category": "Feature",
       "color": "blue",
-      "priority": 2,
+      "priority": "Medium",
       "status": "Not Started"
     },
     {
@@ -129,7 +129,7 @@
       "deadline": "2023-03-12",
       "category": "Feature",
       "color": "yellow",
-      "priority": 4,
+      "priority": "High",
       "status": "In Progress"
     },
     {
@@ -140,7 +140,7 @@
       "deadline": "2023-02-28",
       "category": "",
       "color": "",
-      "priority": 0,
+      "priority": "Low",
       "status": "Not Started"
     },
     {
@@ -151,7 +151,7 @@
       "deadline": "2023-03-01",
       "category": "",
       "color": "",
-      "priority": 0,
+      "priority": "Low",
       "status": "Not Started"
     }
   ],

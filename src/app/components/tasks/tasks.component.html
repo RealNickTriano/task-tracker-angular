@@ -1,8 +1,10 @@
 <section class="px-6 py-8 h-full">
     <!-- Task View -->
-    <app-task-form>
-        
-    </app-task-form>
+    <app-task-form
+        *ngIf="editing || newing"
+        [selectedTask]="taskInEdit"
+        (goBack)="goBack($event)"
+    ></app-task-form>
     <!-- Task Form -->
     <!-- <app-task-details
         [selectedTask]="taskInEdit"

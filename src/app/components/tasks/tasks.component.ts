@@ -15,7 +15,7 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   shownTasks: Task[] = this.tasks;
   taskInEdit: Task = emptyTask;
-  editing: boolean = true;
+  editing: boolean = false;
   newing: boolean = false;
   selectedTask: Task = emptyTask;
   filters: string[] = ["Show All", "Show All", "Show All"];
@@ -109,7 +109,7 @@ export class TasksComponent implements OnInit {
   }
 
   editTask(task: Task) {
-    this.taskInEdit = {...task};
+    this.taskInEdit = task;
     this.editing = true;
   }
 

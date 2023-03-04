@@ -7,7 +7,8 @@
         <h1 class="text-3xl font-medium col-start-2 self-center place-self-center">Task Details</h1>
         <!-- TODO: onClick -->
         <button
-            class="col-start-3 place-self-end self-center scale-150"
+            (click)="onGoBack()"
+            class="col-start-3 place-self-end self-center scale-150 text-rose-700"
         >
             <mat-icon>exit_to_app</mat-icon>
         </button>
@@ -15,10 +16,10 @@
 
     <form 
         #formRef="ngForm"
-        class="flex justify-between items-start gap-6 w-full h-96"
+        class="flex justify-between items-start gap-6 w-full h-full"
     > 
     <!-- Left Half -->
-        <div class="flex flex-col justify-start items-start gap-4 w-full">
+        <div class="flex flex-col justify-start items-start gap-4 w-full h-full">
             <app-text-input
                 [(ngModel)]="selectedTask.title"
                 [name]="'title'"
@@ -54,9 +55,20 @@
                 name="category"
             ></app-dropdown>
 
+            <div class="flex flex-col justify-center items-start w-full">
+                <label for="deadline" class="text-xl font-medium">Deadline</label>
+                <input 
+                    type="date" name="deadline" id="deadline"
+                    required placeholder="Deadline"
+                    [(ngModel)]="selectedTask.deadline"
+                    class="bg-stone-700 rounded-sm px-4 py-1 outline-none w-full hover:cursor-pointer"
+                >
+            </div>
+
         </div>
     <!-- Right Half -->
-        <div class="flex flex-col justify-start items-start gap-6 w-full h-full">
+        <div 
+            class="flex flex-col justify-center items-start gap-6 w-full h-[410px]">
             <app-text-box
                 [(ngModel)]="selectedTask.description"
                 [label]="'Task Description'"
@@ -85,7 +97,8 @@
         </div>
     </form>
 
-    <pre>{{formRef.value | json}}</pre>
+    <pre class="mt-16">{{formRef.value | json}}</pre>
     <pre>{{formRef.valid | json}}</pre>
+    <pre>{{selectedTask | json}}</pre>
 
 </div>

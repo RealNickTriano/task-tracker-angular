@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task, emptyTask } from 'src/app/common/models/Task';
 
 
@@ -9,22 +9,31 @@ import { Task, emptyTask } from 'src/app/common/models/Task';
 })
 export class TaskFormComponent implements OnInit{
 
-  @Input() selectedTask: Task = {
-    "id": 2,
-    "projectId": 1,
-    "title": "Update User Profile",
-    "description": "Add new fields to the user profile page and do this",
-    "deadline": new Date("2023-03-10"),
-    "category": "Feature",
-    "color": "blue",
-    "priority": 'Low',
-    "status": "Completed"
-  };
-  
+  @Input() selectedTask: Task = emptyTask;
+  @Input() editing: boolean = false;
+  @Input() newing: boolean = false;
+  @Output() save = new EventEmitter();
+  @Output() update = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() goBack = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {
 
+  }
+
+  setStatus(status: string) {
+    this.selectedTask.status = status;
+  }
+
+  onGoBack() {
+    this.clearForm();
+    this.goBack.emit('tasks');
+  }
+
+  clearForm() {
+    this.selectedTask = emptyTask;
   }
 
 }
