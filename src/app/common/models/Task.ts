@@ -3,19 +3,19 @@ export interface Task {
     projectId: number,
     title: String,
     description: String,
-    deadline: Date,
+    deadline: string,
     category: String,
     color: String,
     priority: string,
     status: String
 }
 
-export const emptyTask = {
+export const emptyTask: Task = {
     id: 0,
     projectId: 0,
     title: '',
     description: '',
-    deadline: new Date(),
+    deadline: new Date().toISOString().split('T')[0],
     category: '',
     color: '',
     priority: '',

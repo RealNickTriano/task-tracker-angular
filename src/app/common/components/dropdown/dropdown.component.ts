@@ -20,6 +20,7 @@ export class DropdownComponent implements OnInit, ControlValueAccessor {
   @Input() value: String = '';
   @Input() title: string = 'Title';
   @Input() width: string = "180px";
+  @Input() required: boolean = false;
 
   @Output() onSelect = new EventEmitter();
 

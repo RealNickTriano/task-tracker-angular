@@ -3,19 +3,8 @@
     {
       "id": 2,
       "projectId": 1,
-      "title": "Update User Profile",
-      "description": "Add new fields to the user profile page and do this",
-      "deadline": "2023-03-10",
-      "category": "Feature",
-      "color": "blue",
-      "priority": "Low",
-      "status": "Completed"
-    },
-    {
-      "id": 15,
-      "projectId": 1,
-      "title": "Update User Profile",
-      "description": "Add new fields to the user profile page and do this",
+      "title": "Update User Profile Updated",
+      "description": "- Add new fields to the user profile page and do this\n- New thing in this descriptionaaaaaaaaaaaaaaaaaaaaa",
       "deadline": "2023-03-10",
       "category": "Feature",
       "color": "blue",
@@ -46,17 +35,6 @@
     },
     {
       "id": 18,
-      "projectId": 1,
-      "title": "Update User Profile",
-      "description": "Add new fields to the user profile page and do this",
-      "deadline": "2023-03-10",
-      "category": "Feature",
-      "color": "blue",
-      "priority": "Low",
-      "status": "Completed"
-    },
-    {
-      "id": 19,
       "projectId": 1,
       "title": "Update User Profile",
       "description": "Add new fields to the user profile page and do this",
@@ -150,6 +128,17 @@
       "description": "Gonna do this task! Its Important!",
       "deadline": "2023-03-01",
       "category": "",
+      "color": "",
+      "priority": "Low",
+      "status": "Not Started"
+    },
+    {
+      "id": 19,
+      "projectId": "1",
+      "title": "New Task Pog",
+      "description": "",
+      "deadline": "2023-03-04",
+      "category": "Feature",
       "color": "",
       "priority": "Low",
       "status": "Not Started"

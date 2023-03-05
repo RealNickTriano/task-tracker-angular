@@ -13,6 +13,7 @@
             [(ngModel)]="value"
             (ngModelChange)="onChange($event)"
             class="bg-stone-700 outline-none hover:cursor-pointer"
+            [required]="required"
         >
         <mat-icon class="scale-[1.5]">arrow_drop_down</mat-icon>
     </button>
