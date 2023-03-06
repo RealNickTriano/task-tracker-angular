@@ -17,29 +17,34 @@
         *ngIf="!editing && !newing"
         class="flex flex-col justify-start items-center gap-6 h-full"
     >
-        <header class="flex justify-start items-end gap-6">
-            <!-- <app-dropdown 
-                (onSelect)="onSelectStatus($event)"
-                [title]="'Task Status'"
-                [list]="['Show All', 'Not Started', 'In Progress', 'Completed']"
-                [selected]="'Show All'"
-            ></app-dropdown>
-            <app-dropdown
-                (onSelect)="onSelectPriority($event)"
-                [title]="'Task Priority'"
-                [list]="['Show All', '1', '2', '3', '4']"
-                [selected]="'Show All'"
-            ></app-dropdown>
-            <app-dropdown
-                (onSelect)="onSelectCategory($event)"
-                [title]="'Task Category'"
-                [list]="['Show All', 'Feature', 'Bug', 'Refactor', 'Design']"
-                [selected]="'Show All'"
-            ></app-dropdown> -->
-            <app-new-button
-                (newTask)="newTask()"
-                [name]="'New Task'"
-            ></app-new-button>
+        <header class="flex flex-col justify-center items-start gap-8 w-full">
+            <h1 class="text-3xl font-medium text-center place-self-center">{{selectedProject.title}}</h1>
+            <div class="flex justify-between items-end w-full">
+                <div class="flex justify-start items-center gap-4">
+                    <app-dropdown-filter
+                        (onSelect)="onSelectStatus($event)"
+                        [title]="'Task Status'"
+                        [list]="['Show All', 'Not Started', 'In Progress', 'Completed']"
+                        [value]="'Show All'"
+                    ></app-dropdown-filter>
+                    <app-dropdown-filter
+                        (onSelect)="onSelectPriority($event)"
+                        [title]="'Task Priority'"
+                        [list]="['Show All', 'Low', 'Medium', 'High']"
+                        [value]="'Show All'"
+                    ></app-dropdown-filter>
+                    <app-dropdown-filter
+                        (onSelect)="onSelectCategory($event)"
+                        [title]="'Task Category'"
+                        [list]="['Show All', 'Feature', 'Bug', 'Refactor', 'Design']"
+                        [value]="'Show All'"
+                    ></app-dropdown-filter>
+                </div>
+                <app-new-button
+                    (newTask)="newTask()"
+                    [name]="'New Task'"
+                ></app-new-button>
+            </div>
         </header>
         
         <div class="h-3/4 overflow-y-auto scrollbar pr-4">
@@ -56,10 +61,10 @@
                     class="bg-stone-800 rounded-lg shadow-md flex flex-col justify-start items-center px-4 py-2 gap-4 w-72">
                     <div 
                         class="rounded-full h-2 w-[90%] mx-auto"
-                        [ngStyle]="{'background-color': task.color}"
+                        [ngStyle]="{'background-color': task.category.color}"
                     ></div>
                     <h1 class="font-semibold text-xl truncate w-full">{{task.title}}</h1>
-                    <p class="flex justify-center items-center h-24 text-ellipsis w-full">{{task.description}}</p>
+                    <div class="h-24 text-center text-ellipsis-lines w-full">{{task.description}}</div>
                     <div class="flex justify-between items-center w-full">
                         <p class="flex justify-center items-center gap-2">
                             <mat-icon class="text-md">calendar_today</mat-icon>{{task.deadline}}

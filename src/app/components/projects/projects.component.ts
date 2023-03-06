@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from 'src/app/common/models/Project';
+import { Project, emptyProject } from 'src/app/common/models/Project';
 import { ProjectService } from 'src/app/common/services/project.service';
 
 interface Filter {
   name: string,
   key: string,
   active: boolean
-}
-
-const emptyProject: Project = {
-  id: 0,
-  title: "",
-  description: "",
-  deadline: new Date(),
-  status: ""
 }
 
 @Component({

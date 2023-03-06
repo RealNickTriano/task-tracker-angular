@@ -1,13 +1,12 @@
 export interface Task {
     id: number,
     projectId: number,
-    title: String,
-    description: String,
+    title: string,
+    description: string,
     deadline: string,
-    category: String,
-    color: String,
+    category: {name: string, color: string},
     priority: string,
-    status: String
+    status: string
 }
 
 export const emptyTask: Task = {
@@ -16,8 +15,7 @@ export const emptyTask: Task = {
     title: '',
     description: '',
     deadline: new Date().toISOString().split('T')[0],
-    category: '',
-    color: '',
+    category: {name: '', color: ''},
     priority: '',
     status: ''
 }

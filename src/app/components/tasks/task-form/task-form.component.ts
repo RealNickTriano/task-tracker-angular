@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Project, emptyProject } from 'src/app/common/models/Project';
 import { Task, emptyTask } from 'src/app/common/models/Task';
 
 
@@ -21,10 +22,6 @@ export class TaskFormComponent implements OnInit{
 
   ngOnInit(): void {
 
-  }
-
-  setStatus(status: string) {
-    this.selectedTask.status = status;
   }
 
   onGoBack() {

@@ -1,13 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Project } from 'src/app/common/models/Project';
-
-const emptyProject: Project = {
-  id: 0,
-  title: "",
-  description: "",
-  deadline: new Date(),
-  status: ""
-}
+import { Project, emptyProject } from 'src/app/common/models/Project';
 
 @Component({
   selector: 'app-project-details',

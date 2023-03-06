@@ -1,7 +1,20 @@
 export interface Project {
     id: Number,
-    title: String,
-    description: String,
+    title: string,
+    description: string,
     deadline: Date,
-    status: String
+    status: string,
+    categories: [{
+        name: string,
+        color: string
+    }]
+}
+
+export const emptyProject: Project = {
+    id: 0,
+    title: '',
+    description: '',
+    deadline: new Date(),
+    status: '',
+    categories: [{name: '', color: ''}]
 }

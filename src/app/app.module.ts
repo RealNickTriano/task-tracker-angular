@@ -19,6 +19,7 @@ import { TextInputComponent } from './common/components/text-input/text-input.co
 import { TaskModalComponent } from './components/tasks/task-modal/task-modal.component';
 import { TaskFormComponent } from './components/tasks/task-form/task-form.component';
 import { TextBoxComponent } from './common/components/text-box/text-box.component';
+import { DropdownFilterComponent } from './common/components/dropdown-filter/dropdown-filter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TextBoxComponent } from './common/components/text-box/text-box.componen
     TextInputComponent,
     TaskModalComponent,
     TaskFormComponent,
-    TextBoxComponent
+    TextBoxComponent,
+    DropdownFilterComponent,
   ],
   imports: [
     BrowserModule,

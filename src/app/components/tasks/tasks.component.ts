@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Project, emptyProject } from 'src/app/common/models/Project';
 import { Task, emptyTask } from 'src/app/common/models/Task';
 import { ProjectService } from 'src/app/common/services/project.service';
 import { TaskService } from 'src/app/common/services/task.service';
@@ -20,13 +21,23 @@ export class TasksComponent implements OnInit {
   selectedTask: Task = emptyTask;
   filters: string[] = ["Show All", "Show All", "Show All"];
   viewTask: boolean = false;
+  selectedProject: Project = emptyProject;
 
   constructor(private route: ActivatedRoute, 
-              private taskService: TaskService) {}
+              private taskService: TaskService,
+              private projectService: ProjectService) {}
 
   ngOnInit(): void {
     this.getProjectIdFromUrl();
+    this.fetchProject(this.projectId);
     this.fetchTasks(this.projectId);
+  }
+
+  getCategoryColor(category: string): string {
+    console.log(this.selectedProject);
+    let cat = this.selectedProject.categories.find(item => item.name === category);
+    if (cat) return cat.color;
+    else return '';
   }
 
   onSelectStatus(value: string) {
@@ -40,7 +51,7 @@ export class TasksComponent implements OnInit {
       this.shownTasks = this.shownTasks.filter(item => item.priority.toString() === this.filters[1]);
     }
     if (this.filters[2] !== "Show All") {
-      this.shownTasks = this.shownTasks.filter(item => item.category === this.filters[2]);
+      this.shownTasks = this.shownTasks.filter(item => item.category.name === this.filters[2]);
     } 
   }
 
@@ -65,14 +76,14 @@ export class TasksComponent implements OnInit {
       this.shownTasks = this.shownTasks.filter(item => item.status === this.filters[0]);
     }
     if (this.filters[2] !== "Show All") {
-      this.shownTasks = this.shownTasks.filter(item => item.category === this.filters[2]);
+      this.shownTasks = this.shownTasks.filter(item => item.category.name === this.filters[2]);
     }
   }
 
   onSelectCategory(value: string) {
     this.filters[2] = value;
     if (value !== "Show All") {
-      this.shownTasks = this.tasks.filter(item => item.category === this.filters[2]);
+      this.shownTasks = this.tasks.filter(item => item.category.name === this.filters[2]);
     } else {
       this.shownTasks = this.tasks;
     }
@@ -97,6 +108,13 @@ export class TasksComponent implements OnInit {
           this.shownTasks = this.tasks;
         });
     
+  }
+
+  fetchProject(id: number) {
+    this.projectService.getProjectById(id)
+      .subscribe(result => {
+        this.selectedProject = result;
+      })
   }
 
   goBack(backTo: string) {
@@ -136,6 +154,8 @@ export class TasksComponent implements OnInit {
   }
 
   updateTask(task: Task) {
+    let color = this.getCategoryColor(task.category.name);
+    task.category.color = color;
     this.taskService.updateTask(task)
       .subscribe(result => this.fetchTasks(result.projectId));
     this.editing = false;

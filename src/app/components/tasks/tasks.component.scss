@@ -17,3 +17,13 @@
 .scrollbar::-webkit-scrollbar-thumb:hover {
     background: #78716c;
 }
+
+.text-ellipsis-lines {
+    display: -webkit-box;
+    max-width: 400px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+  }

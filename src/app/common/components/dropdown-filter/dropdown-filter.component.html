@@ -1,0 +1,32 @@
+<div
+    [ngStyle]="{width: width}"
+    class="flex flex-col justify-center items-start gap-2
+            text-lg relative w-full"
+>
+    <label [for]="title" class="text-xl font-medium">{{title}}</label>
+    <button 
+        [id]="title"
+        (click)="setShowChoices()"
+        class="bg-stone-700 w-full shadow-md rounded-sm flex justify-between items-center gap-6 px-4 py-1">
+        <p 
+            class="bg-stone-700 outline-none hover:cursor-pointer"
+        >{{value}}</p>
+        <mat-icon class="scale-[1.5]">arrow_drop_down</mat-icon>
+    </button>
+    <div
+        *ngIf="showChoices" 
+        class="w-full bg-stone-700 rounded-sm shadow-md absolute top-20"
+    >
+        <ul>
+            <li 
+                *ngFor="let item of list">
+                <button 
+                    (click)="setSelected(item)"
+                    class="hover:bg-stone-600 w-full rounded-md text-left px-4 py-2"
+                >
+                    {{item}}
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
