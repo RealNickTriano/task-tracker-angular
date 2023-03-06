@@ -1,7 +1,7 @@
-<div class="py-12 h-full">
-    <header class="flex justify-between items-center px-6">
+<div class="py-12 h-full w-full flex flex-col justify-start items-center">
+    <header class="flex justify-center items-center px-6 w-full max-w-[1100px]">
         <nav class="text-xl font-semibold w-2/3">
-            <ul class="flex justify-between items-center">
+            <ul class="flex justify-start items-center gap-8">
                 <li 
                     *ngFor="let filter of filters"
                     (click)="onFilterButtonClick(filter)"
@@ -20,7 +20,7 @@
             <p>New Project</p>
         </button>
     </header>
-    <section class="px-6 py-14 h-full">
+    <section class="px-6 py-12 h-[800px] w-[900px]">
         <!-- Task List -->
         <app-tasks *ngIf="viewTasks"></app-tasks>
         <!-- Project Form -->
@@ -35,7 +35,8 @@
             (update)="updateProject($event)"
         ></app-project-details>
         <!-- Project List -->
-        <div class="h-3/4 overflow-y-auto scrollbar pr-4" *ngIf="!editing && !newing && !viewTasks">
+        <div class="h-full overflow-y-scroll scrollbar pr-4" 
+        *ngIf="!editing && !newing && !viewTasks">
             <ul class="flex flex-col justify-center gap-6 w-full"
             >
                 <li *ngFor="let project of selectedProjects">

@@ -9,8 +9,8 @@ export class SideNavBarComponent implements OnInit{
 
   links = [
     { path: '/projects', icon: 'folder', title: 'Projects' },
-    { path: '/account', icon: 'person', title: 'Account' },
     { path: '/discussion', icon: 'chat_bubble', title: 'Discussion' },
+    { path: '/account', icon: 'person', title: 'Nicholas Triano' },
   ];
 
   constructor() {}
