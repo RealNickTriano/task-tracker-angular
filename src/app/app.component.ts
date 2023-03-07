@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './common/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-tracker2';
+
+  constructor(private authService: AuthService) {
+    this.authService.changeEmitted$.subscribe(result => {
+      console.log(result);
+    });
+  }
 }

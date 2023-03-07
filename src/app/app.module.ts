@@ -20,6 +20,7 @@ import { TaskModalComponent } from './components/tasks/task-modal/task-modal.com
 import { TaskFormComponent } from './components/tasks/task-form/task-form.component';
 import { TextBoxComponent } from './common/components/text-box/text-box.component';
 import { DropdownFilterComponent } from './common/components/dropdown-filter/dropdown-filter.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DropdownFilterComponent } from './common/components/dropdown-filter/dro
     TaskFormComponent,
     TextBoxComponent,
     DropdownFilterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
