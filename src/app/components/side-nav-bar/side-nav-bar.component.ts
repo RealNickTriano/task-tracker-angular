@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
 
 @Component({
   selector: 'app-side-nav-bar',
@@ -13,10 +14,14 @@ export class SideNavBarComponent implements OnInit{
     { path: '/account', icon: 'person', title: 'Nicholas Triano' },
   ];
 
-  constructor() {}
+  constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
 
+  }
+
+  logout() {
+    this.firebaseService.logout();
   }
 
 }

@@ -7,18 +7,21 @@
             <h1 class="text-2xl">Sign in</h1>
             <div class="flex flex-col justify-center items-center gap-6">
                 <app-text-input
-                    [value]="username"
+                    [(ngModel)]="username"
                     [name]="'username'"
                     [label]="'Username'"
                     [placeholder]="'Enter a Username'"
                     [required]="true"
+                    [autocomplete]="'username'"
                 ></app-text-input>
                 <app-text-input
-                    [value]="password"
+                    [(ngModel)]="password"
                     [name]="'password'"
                     [label]="'Password'"
                     [placeholder]="'Enter a Password'"
                     [required]="true"
+                    [type]="'password'"
+                    [autocomplete]="'current-password'"
                 ></app-text-input>
             </div>
             <div class="w-full flex flex-col justify-center items-center gap-4">

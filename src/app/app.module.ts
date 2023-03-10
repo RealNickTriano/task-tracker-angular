@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AccountComponent } from './components/account/account.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
@@ -21,6 +22,10 @@ import { TaskFormComponent } from './components/tasks/task-form/task-form.compon
 import { TextBoxComponent } from './common/components/text-box/text-box.component';
 import { DropdownFilterComponent } from './common/components/dropdown-filter/dropdown-filter.component';
 import { LoginComponent } from './components/login/login.component';
+
+import { devEnviornment } from './environments/enviornment.dev';
+import { FirebaseService } from './common/services/firebase.service';
+
 
 @NgModule({
   declarations: [
@@ -46,9 +51,11 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
+    AngularFireModule.initializeApp(devEnviornment.firebase)
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/common/services/auth.service';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +12,22 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
 
   }
 
   signIn() {
-    this.authService.emitChange("Signing in");
+    this.firebaseService.signIn(this.username, this.password);
   }
 
   signInWithGoogle() {
-    this.authService.emitChange("Signing in With Google");
+    //this.firebaseService.signInWithGoogle();
   }
 
   signInWithGithub() {
-    this.authService.emitChange("Signing in With Github");
+    console.log("Signing in With Github");
   }
 
 }

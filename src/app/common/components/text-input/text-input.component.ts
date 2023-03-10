@@ -17,6 +17,8 @@ export class TextInputComponent
   implements OnInit, ControlValueAccessor {
 
   @Input() value: String = '';
+  @Input() type: String = 'text';
+  @Input() autocomplete: String = '';
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() placeholder: string = '';
