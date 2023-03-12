@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //const BASE_URL = 'http://localhost:5000';
-const BASE_URL = 'https://fake-backend-pm.herokuapp.com/';
+const BASE_URL = 'https://fake-backend-pm.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
