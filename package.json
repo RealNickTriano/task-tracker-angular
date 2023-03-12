@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "json-server --watch db.json --port 5000",
-    "heroku-postbuild": "npm run server & ng build --prod"
+    "heroku-postbuild": "npm run server & ng build --configuration production"
   },
   "private": true,
   "dependencies": {
