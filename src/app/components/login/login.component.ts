@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithGoogle() {
-    //this.firebaseService.signInWithGoogle();
+    this.firebaseService.signInWithGoogle();
   }
 
   signInWithGithub() {

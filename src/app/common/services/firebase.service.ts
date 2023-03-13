@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class FirebaseService {
       .then(res => {
         this.isLoggedIn = true;
         this.user = res.user;
+        console.log(this.user);
         this.router.navigate(['/projects']);
       }).catch((error) => {
         // Handle Errors here.
@@ -45,9 +47,36 @@ export class FirebaseService {
       });
   }
 
+  async signInWithGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    this.firebaseAuth.signInWithPopup(provider)
+      .then(result => {
+        this.user = result.user;
+        console.log(this.user);
+        this.isLoggedIn = true;
+        let credential = result.credential;
+        this.router.navigate(['/projects']);
+      }).catch(error => {
+        let email = error.email;
+
+        let credential = error.credential;
+        // If account exists with different auth service
+        if (error.code === 
+            'auth/account-exists-with-different-credential') {
+              this.firebaseAuth.fetchSignInMethodsForEmail(email)
+          .then(providers => {
+            /* // The returned 'providers' is a list of the available providers
+            // linked to the email address. Please refer to the guide for a more
+            // complete explanation on how to recover from this error. */
+          });
+        }
+      });
+    }
+
   logout() {
     this.firebaseAuth.signOut();
     this.isLoggedIn = false;
     this.user = null;
+    this.router.navigate(['/login']);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './common/services/auth.service';
 import { FirebaseService } from './common/services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { FirebaseService } from './common/services/firebase.service';
 export class AppComponent implements OnInit{
   title = 'task-tracker2';
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(private firebaseService: FirebaseService,
+              private router: Router) {}
 
   ngOnInit() {}
 }
