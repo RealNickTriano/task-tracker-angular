@@ -1,10 +1,12 @@
+import { Category } from "./Category"
+
 export interface Task {
     id: number,
     projectId: number,
     title: string,
     description: string,
     deadline: string,
-    category: {name: string, color: string},
+    category: Category,
     priority: string,
     status: string
 }

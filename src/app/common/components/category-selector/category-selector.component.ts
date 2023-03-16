@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 type Category = {
   name: string, 
@@ -18,6 +18,7 @@ export class CategorySelectorComponent implements OnInit {
     }
 
   catList: Category[] = [];
+  @Output() updateList = new EventEmitter();
 
   @Input() set items(value: Category[]) {
     if(!value) return;
@@ -40,8 +41,7 @@ export class CategorySelectorComponent implements OnInit {
     }
     if (index === -1) return;
     else this.catList.splice(index, 1);
-    return;
-
+    this.updateList.emit(this.catList);
   }
 
   addItem(item: {name: string; color: string;}) {
@@ -49,8 +49,7 @@ export class CategorySelectorComponent implements OnInit {
     this.catList.push({...item});
     this.category.name = '';
     this.category.color = '';
+    this.updateList.emit(this.catList);
   }
-
-  
 
 }

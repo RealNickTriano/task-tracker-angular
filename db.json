@@ -210,16 +210,16 @@
           "color": "#dc2626"
         },
         {
-          "name": "Bug",
-          "color": "#ea580c"
-        },
-        {
           "name": "Refactor",
           "color": "#65a30d"
         },
         {
           "name": "Design",
           "color": "#0284c7"
+        },
+        {
+          "name": "Design2",
+          "color": "blue"
         }
       ]
     },

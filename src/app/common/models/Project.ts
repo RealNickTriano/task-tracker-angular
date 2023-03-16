@@ -1,13 +1,12 @@
+import { Category } from "./Category"
+
 export interface Project {
     id: Number,
     title: string,
     description: string,
     deadline: Date,
     status: string,
-    categories: [{
-        name: string,
-        color: string
-    }]
+    categories: Category[]
 }
 
 export const emptyProject: Project = {

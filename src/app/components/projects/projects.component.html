@@ -34,6 +34,7 @@
             (delete)="deleteProject($event)"
             (update)="updateProject($event)"
         ></app-project-details>
+        <pre class="bg-black">{{projectInEdit | json}}</pre>
         <!-- Project List -->
         <div class="h-full overflow-y-scroll scrollbar pr-4" 
         *ngIf="!editing && !newing && !viewTasks">
@@ -67,3 +68,4 @@
         </div>
     </section>
 </div>
+

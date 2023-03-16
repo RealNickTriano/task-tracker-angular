@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Category } from 'src/app/common/models/Category';
 import { Project, emptyProject } from 'src/app/common/models/Project';
 
 @Component({
@@ -25,6 +26,11 @@ export class ProjectDetailsComponent implements OnInit{
 
   ngOnInit(): void {
 
+  }
+
+  updateCategories(newList: Category[]) {
+    this.currentProject.categories = newList;
+    return;
   }
 
 }
