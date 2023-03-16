@@ -1,0 +1,7 @@
+.mygrid {
+    max-width: 390px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    grid-row-gap: .5em;
+    grid-column-gap: .5em;
+  }

@@ -25,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { devEnviornment } from './environments/enviornment.dev';
 import { FirebaseService } from './common/services/firebase.service';
+import { CategorySelectorComponent } from './common/components/category-selector/category-selector.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FirebaseService } from './common/services/firebase.service';
     TextBoxComponent,
     DropdownFilterComponent,
     LoginComponent,
+    CategorySelectorComponent,
   ],
   imports: [
     BrowserModule,

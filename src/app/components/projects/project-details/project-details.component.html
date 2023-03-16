@@ -1,75 +1,112 @@
-<button (click)="goBack.emit('projects')"><mat-icon>arrow_back</mat-icon></button>
-<form 
-    #form="ngForm"
-    class="flex flex-col justify-center items-start px-6 text-2xl gap-6"
->
-<div class="flex justify-center items-start gap-6 w-full">
-    <div class="flex flex-col justify-center items-start w-1/2">
+<div class="bg-stone-800 rounded-lg p-12 w-[900px]">
+    <header 
+        class="grid grid-cols-3 mb-6"
+    >
+        <button 
+            (click)="goBack.emit('projects')"
+            class="col-start-1 place-self-start self-end scale-150"
+        ><mat-icon>arrow_back</mat-icon></button>
+        <h1 class="text-3xl font-medium col-start-2 self-center place-self-center">Project Details</h1>
+    </header>
+
+    <form 
+    #formRef="ngForm"
+    class="flex justify-between items-start gap-6 w-full h-full"
+> 
+<!-- Left Half -->
+    <div class="flex flex-col justify-start items-start gap-4 w-full h-full">
+        <app-text-input
+            [(ngModel)]="currentProject.title"
+            [name]="'title'"
+            [label]="'Project Title'"
+            [placeholder]="'Enter a title...'"
+            class="w-full"
+            [required]="true"
+        ></app-text-input>
+
+        <app-dropdown
+            [list]="['Not Started', 'In Progress', 'Completed']"
+            [(ngModel)]="currentProject.status"
+            [title]="'Project Status'"
+            [width]="'100%'"
+            class="w-full z-20"
+            name="status"
+            [required]="true"
+        ></app-dropdown>
+
+        <app-category-selector 
+            class="w-full"
+            [items]="currentProject.categories"
+        ></app-category-selector>
+
+        <!-- <app-dropdown
+            [list]="['Low', 'Medium', 'High']"
+            [(ngModel)]="currentProject.priority"
+            [title]="'Project Priority'"
+            [width]="'100%'"
+            class="w-full z-10"
+            name="priority"
+            [required]="true"
+        ></app-dropdown>
+
+        <app-dropdown
+            [list]="['Feature', 'Bug', 'Refactor']"
+            [(ngModel)]="currentProject.category.name"
+            [title]="'Project Category'"
+            [width]="'100%'"
+            class="w-full z-0"
+            name="category"
+            [required]="true"
+        ></app-dropdown> -->
+
         <div class="flex flex-col justify-center items-start w-full">
-            <label for="title" class="font-semibold">Project Title</label>
-            <input 
-                type="text" name="title" id="title"
-                required placeholder="Project Title"
-                [(ngModel)]="currentProject.title"
-                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
-            >
-        </div>
-        <div class="flex flex-col justify-center items-start w-full">
-            <label for="deadline" class="font-semibold">Deadline</label>
+            <label for="deadline" class="text-xl font-medium">Deadline</label>
             <input 
                 type="date" name="deadline" id="deadline"
                 required placeholder="Deadline"
                 [(ngModel)]="currentProject.deadline"
-                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
+                class="bg-stone-700 rounded-sm px-4 py-1 outline-none w-full hover:cursor-pointer"
             >
         </div>
-        <div class="flex flex-col justify-center items-start w-full">
-            <label for="status" class="font-semibold">Completion Status</label>
-            <select name="status" id="status" 
-                [(ngModel)]="currentProject.status" 
-                [ngStyle]="{ 'color': currentProject.status === 'In Progress' 
-                                ? '#fcd34d' : (currentProject.status === 'Completed' 
-                                ? '#22c55e' : (currentProject.status === 'Not Started' ? '#ef4444' : '#d4d4d4')) }"
-                class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full"
-            >
-                <option class="text-red-500" value="Not Started">Not Started</option>
-                <option class="text-amber-300" value="In Progress">In Progress</option>
-                <option class="text-green-500" value="Completed">Completed</option>
-            </select>
-        </div>
-    </div>
-    <div class="flex flex-col justify-center items-start w-1/2 h-full">
-        <label for="description" class="font-semibold">Project Description</label>
-        <textarea 
-            type="text" name="description" id="description"
-            required placeholder="Project Description"
-            [(ngModel)]="currentProject.description"
-            class="bg-stone-800 rounded-sm px-6 py-1 outline-none w-full resize-none h-48 scrollbar"
-        ></textarea>
-    </div>
-</div>
 
-    <div class="flex justify-center items-center gap-12 w-full pt-14">
-        <button 
-            *ngIf="editing"
-            class="bg-amber-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
-            (click)="update.emit(currentProject)"
+    </div>
+<!-- Right Half -->
+    <div 
+        class="flex flex-col justify-center items-start gap-6 w-full h-[410px]">
+        <app-text-box
+            [(ngModel)]="currentProject.description"
+            [label]="'Project Description (Optional)'"
+            [placeholder]="'Enter a description...'"
+            [required]="false"
+            name="description"
+            class="w-full h-full"
         >
-        <mat-icon>edit</mat-icon>
-        Update Project</button>
-        <button 
-            *ngIf="!editing"
-            class="bg-lime-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
-            (click)="save.emit(currentProject)"
-        >
-        <mat-icon>save</mat-icon>
-        Save Project</button>
-        <button 
-            *ngIf="!newing"
-            class="bg-red-600 px-6 py-2 rounded-full font-bold flex justify-center items-center gap-2"
-            (click)="delete.emit(currentProject)"
-        >
-        <mat-icon>delete_outline</mat-icon>
-        Delete Project</button>
+        </app-text-box>
+        <div class="flex justify-around items-center w-full">
+            <button 
+                [disabled]="!formRef.valid"
+                *ngIf="editing"
+                class="bg-amber-600 px-4 py-2 rounded-full font-bold flex justify-center items-center gap-2 disabled:opacity-50"
+                (click)="update.emit(currentProject)"
+            >
+            <mat-icon>edit</mat-icon>
+            Update Project</button>
+            <button 
+                [disabled]="!formRef.valid"
+                *ngIf="!editing"
+                class="bg-lime-600 px-4 py-2 rounded-full font-bold flex justify-center items-center gap-2 disabled:opacity-50"
+                (click)="save.emit(currentProject)"
+            >
+            <mat-icon>save</mat-icon>
+            Save Project</button>
+            <button 
+                *ngIf="!newing"
+                class="bg-red-600 px-4 py-2 rounded-full font-bold flex justify-center items-center gap-2"
+                (click)="delete.emit(currentProject)"
+            >
+            <mat-icon>delete_outline</mat-icon>
+            Delete Project</button>
+        </div>
     </div>
 </form>
+</div>

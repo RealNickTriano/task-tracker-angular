@@ -1,0 +1,35 @@
+<form 
+    #catForm="ngForm"
+    class="flex justify-center gap-2 items-end mb-2"
+>
+    <app-text-input
+        [type]="'text'"
+        [name]="'category_name'"
+        [placeholder]="'Name'"
+        [label]="'Category Name'"
+        [(ngModel)]="category.name"
+    ></app-text-input>
+    <app-text-input
+        [type]="'text'"
+        [name]="'category_color'"
+        [placeholder]="'Color'"
+        [label]="'Category Color'"
+        [(ngModel)]="category.color"
+    ></app-text-input>
+    <button
+        (click)="addItem(category)"
+    ><mat-icon class="text-green-600">library_add</mat-icon></button>
+</form>
+<ul class="mygrid">
+    <li *ngFor="let item of catList"
+        [ngStyle]="{'backgroundColor': item.color}"
+        class="col-end-auto px-3 py-1 rounded-full flex justify-center items-center gap-2 col-auto"
+    >{{item.name}}
+        <button 
+            class="flex justify-center items-center self-end"
+            (click)="removeItem(item)"
+        >
+            <mat-icon class="scale-75">close</mat-icon>
+        </button>
+    </li>
+</ul>
