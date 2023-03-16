@@ -117,6 +117,10 @@ export class TasksComponent implements OnInit {
       })
   }
 
+  getProjectCategories() {
+    return this.selectedProject.categories.map(item => item.name);
+  }
+
   goBack(backTo: string) {
     if (backTo === "tasks") {
       this.editing = false;
@@ -142,6 +146,8 @@ export class TasksComponent implements OnInit {
 
   saveTask(task: Task) {
     task.projectId = this.projectId;
+    let color = this.getCategoryColor(task.category.name);
+    task.category.color = color;
     this.taskService.createNewTask(task)
       .subscribe(result => this.fetchTasks(result.projectId));
     this.newing = false;

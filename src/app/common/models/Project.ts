@@ -15,5 +15,5 @@ export const emptyProject: Project = {
     description: '',
     deadline: new Date(),
     status: '',
-    categories: [{name: '', color: ''}]
+    categories: []
 }

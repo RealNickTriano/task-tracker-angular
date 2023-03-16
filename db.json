@@ -195,6 +195,19 @@
       "color": "",
       "priority": "Medium",
       "status": "In Progress"
+    },
+    {
+      "id": 21,
+      "projectId": "10",
+      "title": "My First Task",
+      "description": "This should work now!",
+      "deadline": "2023-03-17",
+      "category": {
+        "name": "Feature",
+        "color": "#34d399"
+      },
+      "priority": "High",
+      "status": "In Progress"
     }
   ],
   "projects": [
@@ -420,6 +433,35 @@
         {
           "name": "Design",
           "color": "#0284c7"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "My New Project",
+      "description": "Here is my description. I am going to make this long to see how the description looks below the title when I go to view the tasks",
+      "deadline": "2023-04-06",
+      "status": "Not Started",
+      "categories": [
+        {
+          "name": "Feature",
+          "color": "#34d399"
+        },
+        {
+          "name": "Bug",
+          "color": "#14b8a6"
+        },
+        {
+          "name": "Design",
+          "color": "#9333ea"
+        },
+        {
+          "name": "Refactor",
+          "color": "#ec4899"
+        },
+        {
+          "name": "Configuration",
+          "color": "#ea580c"
         }
       ]
     }

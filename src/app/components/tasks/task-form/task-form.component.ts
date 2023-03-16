@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Category } from 'src/app/common/models/Category';
 import { Project, emptyProject } from 'src/app/common/models/Project';
 import { Task, emptyTask } from 'src/app/common/models/Task';
 
@@ -13,6 +14,7 @@ export class TaskFormComponent implements OnInit{
   @Input() selectedTask: Task = emptyTask;
   @Input() editing: boolean = false;
   @Input() newing: boolean = false;
+  @Input() projectCategories: string[] = [];
   @Output() save = new EventEmitter();
   @Output() update = new EventEmitter();
   @Output() delete = new EventEmitter();
