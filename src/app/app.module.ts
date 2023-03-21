@@ -27,6 +27,7 @@ import { devEnviornment } from './environments/enviornment.dev';
 import { FirebaseService } from './common/services/firebase.service';
 import { CategorySelectorComponent } from './common/components/category-selector/category-selector.component';
 import { MainComponent } from './components/main/main.component';
+import { StatComponent } from './common/components/stat/stat.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MainComponent } from './components/main/main.component';
     LoginComponent,
     CategorySelectorComponent,
     MainComponent,
+    StatComponent,
   ],
   imports: [
     BrowserModule,
