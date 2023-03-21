@@ -26,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { devEnviornment } from './environments/enviornment.dev';
 import { FirebaseService } from './common/services/firebase.service';
 import { CategorySelectorComponent } from './common/components/category-selector/category-selector.component';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CategorySelectorComponent } from './common/components/category-selector
     DropdownFilterComponent,
     LoginComponent,
     CategorySelectorComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@
                 <li *ngFor="let project of selectedProjects">
                     <button 
                         (click)="selectProject(project)"
-                        [routerLink]="['/projects', project.id]"
+                        [routerLink]="['/app/projects', project.id]"
                         class=" bg-stone-800 rounded-md shadow-md px-4 py-2 flex flex-col justify-start items-start gap-2 w-full">
                         <div class="flex justify-between items-center w-full">
                             <h1 class="text-xl">{{project.title}}</h1>

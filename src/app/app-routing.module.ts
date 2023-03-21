@@ -7,28 +7,35 @@ import { DiscussionComponent } from './components/discussion/discussion.componen
 import { TasksComponent } from './components/tasks/tasks.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './common/guards/auth.guard';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
-  { path: 'login', 
-    component: LoginComponent,}, 
-    
-  { path: 'projects', 
-    component: ProjectsComponent,
-    //canActivate: [AuthGuard],
-  }, 
-  { path: 'account', 
-    component: AccountComponent,
-    //canActivate: [AuthGuard] 
-  }, 
-  { path: 'discussion', 
-    component: DiscussionComponent,
-    //canActivate: [AuthGuard]
-  }, 
-  { path: 'projects/:id', 
-    component: TasksComponent,
-    //canActivate: [AuthGuard]
-  }, 
-  { path: '**', redirectTo: '/projects' }, 
+  { path: 'app', 
+    component: MainComponent,
+    children: [ 
+      { path: 'projects', 
+        component: ProjectsComponent,
+        //canActivate: [AuthGuard],
+      }, 
+      { path: 'account', 
+        component: AccountComponent,
+        //canActivate: [AuthGuard] 
+      }, 
+      { path: 'discussion', 
+        component: DiscussionComponent,
+        //canActivate: [AuthGuard]
+      }, 
+      { path: 'projects/:id', 
+        component: TasksComponent,
+        //canActivate: [AuthGuard]
+      }, 
+    ]
+  },
+  { 
+    path: 'login', 
+    component: LoginComponent,
+  },
+  { path: '**', redirectTo: '/app/projects' }, 
 ];
 
 @NgModule({

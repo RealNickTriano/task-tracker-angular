@@ -9,9 +9,9 @@ import { FirebaseService } from 'src/app/common/services/firebase.service';
 export class SideNavBarComponent implements OnInit {
 
   links = [
-    { path: '/projects', icon: 'folder', title: 'Projects' },
-    { path: '/discussion', icon: 'chat_bubble', title: 'Discussion' },
-    { path: '/account', icon: 'person', title: 'Account' },
+    { path: '/app/projects', icon: 'folder', title: 'Projects' },
+    { path: '/app/discussion', icon: 'chat_bubble', title: 'Discussion' },
+    { path: '/app/account', icon: 'person', title: 'Account' },
   ];
   
   constructor(private firebaseService: FirebaseService) {}
