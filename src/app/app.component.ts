@@ -14,5 +14,11 @@ export class AppComponent implements OnInit{
   constructor(private firebaseService: FirebaseService,
               private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let user = localStorage.getItem('user');
+    if (user) {
+      this.firebaseService.user = JSON.parse(user);
+      this.firebaseService.isLoggedIn = true;
+    }
+  }
 }

@@ -55,6 +55,7 @@ export class FirebaseService {
         console.log(this.user);
         this.isLoggedIn = true;
         let credential = result.credential;
+        localStorage.setItem('user', JSON.stringify(this.user));
         this.router.navigate(['/projects']);
       }).catch(error => {
         let email = error.email;
@@ -77,6 +78,7 @@ export class FirebaseService {
     this.firebaseAuth.signOut();
     this.isLoggedIn = false;
     this.user = null;
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 }
