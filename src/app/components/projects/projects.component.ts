@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project, emptyProject } from 'src/app/common/models/Project';
+import { FirebaseService } from 'src/app/common/services/firebase.service';
 import { ProjectService } from 'src/app/common/services/project.service';
 
 interface Filter {
@@ -30,7 +31,8 @@ export class ProjectsComponent implements OnInit {
     {name: "Completed", key: "Completed", active: false}
   ]
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService, 
+              private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
     this.fetchProjects();
@@ -44,7 +46,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   fetchProjects() {
-    this.projectService.getAllProjects()
+    this.projectService.getAllProjects(this.firebaseService.user.uid)
       .subscribe((projects: Project[]) => {
         this.projects = projects;
         this.selectedProjects = projects;
@@ -84,6 +86,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   saveProject(project: Project) {
+    project.uid = this.firebaseService.user.uid;
     this.projectService.createNewProject(project)
       .subscribe(result => this.fetchProjects());
     this.newing = false;

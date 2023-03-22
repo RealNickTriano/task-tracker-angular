@@ -195,24 +195,12 @@
       "color": "",
       "priority": "Medium",
       "status": "In Progress"
-    },
-    {
-      "id": 21,
-      "projectId": "10",
-      "title": "My First Task",
-      "description": "This should work now!",
-      "deadline": "2023-03-17",
-      "category": {
-        "name": "Feature",
-        "color": "#34d399"
-      },
-      "priority": "High",
-      "status": "In Progress"
     }
   ],
   "projects": [
     {
       "id": 1,
+      "uid": "3APzgCQBJZQVAPcbWs3DNMp0GVj2",
       "title": "New Website Development",
       "description": "Develop a new website for a client",
       "deadline": "2023-06-30",
@@ -238,6 +226,7 @@
     },
     {
       "id": 2,
+      "uid": "3APzgCQBJZQVAPcbWs3DNMp0GVj2",
       "title": "Social Media Management",
       "description": "Manage the social media accounts for a client",
       "deadline": "2023-04-30",
@@ -263,6 +252,7 @@
     },
     {
       "id": 3,
+      "uid": "3APzgCQBJZQVAPcbWs3DNMp0GVj2",
       "title": "Todo-List",
       "description": "Make a todo list to learn CRUD",
       "deadline": "2023-04-20",
@@ -288,6 +278,7 @@
     },
     {
       "id": 4,
+      "uid": "3APzgCQBJZQVAPcbWs3DNMp0GVj2",
       "title": "Logo Design",
       "description": "Create a logo for a new brand",
       "deadline": "2023-03-15",
@@ -313,6 +304,7 @@
     },
     {
       "id": 5,
+      "uid": "3APzgCQBJZQVAPcbWs3DNMp0GVj2",
       "title": "Social Media Marketing",
       "description": "Manage social media accounts for a company",
       "deadline": "2023-05-31",
@@ -338,6 +330,7 @@
     },
     {
       "id": 6,
+      "uid": "horwVYU6U9XcqxSth296wNhOVSz1",
       "title": "Email Marketing",
       "description": "Create and send email campaigns to potential customers",
       "deadline": "2023-04-15",
@@ -358,110 +351,6 @@
         {
           "name": "Design",
           "color": "#0284c7"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "title": "Social Media Marketing",
-      "description": "Manage social media accounts for a company",
-      "deadline": "2023-05-31",
-      "status": "In Progress",
-      "categories": [
-        {
-          "name": "Feature",
-          "color": "#dc2626"
-        },
-        {
-          "name": "Bug",
-          "color": "#ea580c"
-        },
-        {
-          "name": "Refactor",
-          "color": "#65a30d"
-        },
-        {
-          "name": "Design",
-          "color": "#0284c7"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "title": "Email Marketing 2",
-      "description": "Create and send email campaigns to potential customers MORE CUSTOMERS!",
-      "deadline": "2023-04-15",
-      "status": "Not Started",
-      "categories": [
-        {
-          "name": "Feature",
-          "color": "#dc2626"
-        },
-        {
-          "name": "Bug",
-          "color": "#ea580c"
-        },
-        {
-          "name": "Refactor",
-          "color": "#65a30d"
-        },
-        {
-          "name": "Design",
-          "color": "#0284c7"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "title": "New Project Button",
-      "description": "This new project button should work now let's see!",
-      "deadline": "2023-02-28",
-      "status": "In Progress",
-      "categories": [
-        {
-          "name": "Feature",
-          "color": "#dc2626"
-        },
-        {
-          "name": "Bug",
-          "color": "#ea580c"
-        },
-        {
-          "name": "Refactor",
-          "color": "#65a30d"
-        },
-        {
-          "name": "Design",
-          "color": "#0284c7"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "title": "My New Project",
-      "description": "Here is my description. I am going to make this long to see how the description looks below the title when I go to view the tasks",
-      "deadline": "2023-04-06",
-      "status": "Not Started",
-      "categories": [
-        {
-          "name": "Feature",
-          "color": "#34d399"
-        },
-        {
-          "name": "Bug",
-          "color": "#14b8a6"
-        },
-        {
-          "name": "Design",
-          "color": "#9333ea"
-        },
-        {
-          "name": "Refactor",
-          "color": "#ec4899"
-        },
-        {
-          "name": "Configuration",
-          "color": "#ea580c"
         }
       ]
     }

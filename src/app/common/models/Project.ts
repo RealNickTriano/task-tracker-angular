@@ -2,6 +2,7 @@ import { Category } from "./Category"
 
 export interface Project {
     id: Number,
+    uid: string,
     title: string,
     description: string,
     deadline: Date,
@@ -11,6 +12,7 @@ export interface Project {
 
 export const emptyProject: Project = {
     id: 0,
+    uid: '',
     title: '',
     description: '',
     deadline: new Date(),

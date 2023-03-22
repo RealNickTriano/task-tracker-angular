@@ -19,12 +19,16 @@ export class ProjectService {
     return `${BASE_URL}/${this.endpoint}`
   }
 
+  private getUrlWithUID(uid: string) {
+    return `${BASE_URL}/${this.endpoint}?uid=${uid}`
+  }
+
   private getUrlWithID(id: Number) {
     return `${this.getUrl()}/${id}`;
   }
 
-  getAllProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.getUrl());
+  getAllProjects(uid: string): Observable<Project[]> {
+    return this.http.get<Project[]>(this.getUrlWithUID(uid));
   }
 
   getProjectById(id: number): Observable<Project> {
