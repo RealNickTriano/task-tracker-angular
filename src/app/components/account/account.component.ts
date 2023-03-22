@@ -12,6 +12,8 @@ export class AccountComponent implements OnInit {
   name: string = "";
   email: string = "";
   provider: string = "";
+  photoUrl: string = "";
+  verified: boolean = false;
 
   stats: {title: string, content: string | number}[] = [
     {title: 'Projects Created', content: 5},
@@ -31,6 +33,8 @@ export class AccountComponent implements OnInit {
       this.provider = this.firebaseService.user.providerData[0].providerId;
       this.name = this.firebaseService.user.displayName;
       this.email = this.firebaseService.user.email;
+      this.photoUrl = this.firebaseService.user.photoURL;
+      this.verified = this.firebaseService.user.emailVerified;
     }
   }
   

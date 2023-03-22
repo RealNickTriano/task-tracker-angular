@@ -9,25 +9,33 @@ import { FirebaseService } from 'src/app/common/services/firebase.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string = '';
+  email: string = '';
   password: string = '';
+  authErrorMessage: string = "";
 
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
-
+    this.firebaseService.errorMessage$
+      .subscribe((data) => {
+        this.authErrorMessage = data;
+      })
   }
 
   signIn() {
-    this.firebaseService.signIn(this.username, this.password);
+    this.firebaseService.signIn(this.email, this.password);
   }
 
   signInWithGoogle() {
     this.firebaseService.signInWithGoogle();
   }
 
-  signInWithGithub() {
-    console.log("Signing in With Github");
+  async signInWithGithub() {
+    this.firebaseService.signInWithGithub()
+  }
+
+  signInAsDemo() {
+    this.firebaseService.signIn("demouser@demo.com", "demoUser");
   }
 
 }
