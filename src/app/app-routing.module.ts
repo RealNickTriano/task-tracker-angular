@@ -15,19 +15,19 @@ const routes: Routes = [
     children: [ 
       { path: 'projects', 
         component: ProjectsComponent,
-        //canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
       }, 
       { path: 'account', 
         component: AccountComponent,
-        //canActivate: [AuthGuard] 
+        canActivate: [AuthGuard] 
       }, 
       { path: 'discussion', 
         component: DiscussionComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       }, 
       { path: 'projects/:id', 
         component: TasksComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       }, 
     ]
   },

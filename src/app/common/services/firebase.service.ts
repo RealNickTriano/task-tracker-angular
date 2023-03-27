@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 export class FirebaseService {
 
   isLoggedIn = false;
-  user: any;
+  user: any = {};
   errorMessage$ = new BehaviorSubject('');
 
   constructor(private firebaseAuth: AngularFireAuth,
@@ -23,7 +23,7 @@ export class FirebaseService {
         this.isLoggedIn = true;
         this.user = res.user;
         this.clearError();
-        localStorage.setItem('user', JSON.stringify(this.user));
+        localStorage.setItem('user', JSON.stringify(res.user));
         this.router.navigate(['/projects']);
       }).catch((error) => {
         // Handle Errors here.
@@ -61,11 +61,10 @@ export class FirebaseService {
     this.firebaseAuth.signInWithPopup(provider)
       .then(result => {
         this.user = result.user;
-        console.log(this.user);
         this.isLoggedIn = true;
         let credential = result.credential;
         this.clearError();
-        localStorage.setItem('user', JSON.stringify(this.user));
+        localStorage.setItem('user', JSON.stringify(result.user));
         this.router.navigate(['/projects']);
       }).catch(error => {
         let email = error.email;
@@ -89,12 +88,11 @@ export class FirebaseService {
     var provider = new firebase.auth.GithubAuthProvider();
       this.firebaseAuth.signInWithPopup(provider)
       .then(result => {
-        this.user = result.user;
-        console.log(this.user);
+        this.user =result.user;
         this.isLoggedIn = true;
         let credential = result.credential;
         this.clearError();
-        localStorage.setItem('user', JSON.stringify(this.user));
+        localStorage.setItem('user', JSON.stringify(result.user));
         this.router.navigate(['/projects']);
       }).catch(error => {
         let email = error.email;
